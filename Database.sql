@@ -1,13 +1,13 @@
 CREATE TABLE `Campaign` (
   `campaignID` int(6) NOT NULL AUTO_INCREMENT,
-  `clientID` int(6) NOT NULL AUTO_INCREMENT,
+  `clientID` int(6) NOT NULL UNIQUE,
   PRIMARY KEY(campaignID)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
 CREATE TABLE `Advert` (
   `advertID` int(6) NOT NULL AUTO_INCREMENT,
-  `campaignID` int(6) NOT NULL AUTO_INCREMENT,
+  `campaignID` int(6) NOT NULL UNIQUE,
   `type` varchar(8) NOT NULL,
   PRIMARY KEY (advertID),
   FOREIGN KEY (campaignID) REFERENCES Campaign(campaignID)
@@ -22,8 +22,8 @@ CREATE TABLE `Client` (
 
 CREATE TABLE `Invoice` (
   `invoiceID` int(6) NOT NULL AUTO_INCREMENT,
-  `campaignID` int(6) NOT NULL AUTO_INCREMENT,
-  `clientID` int(6) NOT NULL AUTO_INCREMENT,
+  `campaignID` int(6) NOT NULL UNIQUE,
+  `clientID` int(6) NOT NULL UNIQUE,
   `cost` int(16) NOT NULL,
   PRIMARY KEY(invoiceID)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -63,7 +63,10 @@ CREATE TABLE `Web` (
 
 
 CREATE TABLE `WorkDone` (
-  `campaignID` int(6) NOT NULL AUTO_INCREMENT,
-  `employeeID` int(6) NOT NULL AUTO_INCREMENT,
-  `hoursWorked` int(4) NOT NULL
+  `campaignID` int(6) NOT NULL UNIQUE,
+  `employeeID` int(6) NOT NULL UNIQUE,
+  `hoursWorked` int(4) NOT NULL,
+  PRIMARY KEY(campaignID, employeeID),
+  FOREIGN KEY (campaignID) REFERENCES Campaign(campaignID),
+  FOREIGN KEY (employeeID) REFERENCES Employee(employeeID)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
