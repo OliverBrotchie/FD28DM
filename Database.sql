@@ -5,7 +5,8 @@ CREATE TABLE `Campaign` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 CREATE TABLE  `Employee` (
-  `employeeID` int(6) NOT NULL AUTO_INCREMENT
+  `employeeID` int(6) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY(employeeID)
  ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 CREATE TABLE `Advert` (
