@@ -67,6 +67,6 @@ CREATE TABLE `WorkDone` (
   `employeeID` int(6) NOT NULL UNIQUE,
   `hoursWorked` int(4) NOT NULL,
   PRIMARY KEY(campaignID, employeeID),
-  FOREIGN KEY (campaignID) REFERENCES Campaign(campaignID),
-  FOREIGN KEY (employeeID) REFERENCES Employee(employeeID)
+  FOREIGN KEY (campaignID) REFERENCES Campaign(campaignID)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
