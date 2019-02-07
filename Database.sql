@@ -1,3 +1,30 @@
+CREATE TABLE   `PersonalInfo` (
+  `personID` int(6) NOT NULL AUTO_INCREMENT,
+  `firstName` varchar(15) NOT NULL,
+  `secondName` varchar(20) NOT NULL,
+  `emailAddress` varchar(30) NOT NULL,
+  `phoneNumber` int(15) NOT NULL,
+  PRIMARY KEY(personID)
+ ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+CREATE TABLE  `Employee` (
+  `employeeID` int(6) NOT NULL AUTO_INCREMENT,
+  `personID` int(6) NOT NULL UNIQUE,
+  `workEmail` varchar(30) NOT NULL UNIQUE,
+  PRIMARY KEY(employeeID),
+  FOREIGN KEY(personID) REFERENCES PersonalInfo(personID)
+ ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+CREATE TABLE `Client` (
+  `clientID` int(6) NOT NULL AUTO_INCREMENT,
+  `personID` int(6) NOT NULL UNIQUE,
+  PRIMARY KEY(clientID),
+  FOREIGN KEY(personID) REFERENCES PersonalInfo(personID)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
 CREATE TABLE `Campaign` (
   `campaignID` int(6) NOT NULL AUTO_INCREMENT,
   `clientID` int(6) NOT NULL UNIQUE,
@@ -5,10 +32,6 @@ CREATE TABLE `Campaign` (
   FOREIGN KEY(clientID) REFERENCES Client(clientID)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-CREATE TABLE  `Employee` (
-  `employeeID` int(6) NOT NULL AUTO_INCREMENT,
-  PRIMARY KEY(employeeID)
- ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 CREATE TABLE `Advert` (
   `advertID` int(6) NOT NULL AUTO_INCREMENT,
@@ -16,12 +39,6 @@ CREATE TABLE `Advert` (
   `type` varchar(8) NOT NULL,
   PRIMARY KEY (advertID),
   FOREIGN KEY (campaignID) REFERENCES Campaign(campaignID)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
-
-CREATE TABLE `Client` (
-  `clientID` int(6) NOT NULL AUTO_INCREMENT,
-  PRIMARY KEY(clientID)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
