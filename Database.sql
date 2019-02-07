@@ -1,7 +1,8 @@
 CREATE TABLE `Campaign` (
   `campaignID` int(6) NOT NULL AUTO_INCREMENT,
   `clientID` int(6) NOT NULL UNIQUE,
-  PRIMARY KEY(campaignID)
+  PRIMARY KEY(campaignID),
+  FOREIGN KEY(clientID) REFERENCES Client(clientID)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 CREATE TABLE  `Employee` (
