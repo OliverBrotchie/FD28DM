@@ -1,26 +1,8 @@
--- phpMyAdmin SQL Dump
--- version 4.8.3
--- https://www.phpmyadmin.net/
---
--- Host: localhost
--- Generation Time: Feb 07, 2019 at 12:36 PM
--- Server version: 5.6.41-log
--- PHP Version: 5.6.40
-
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
---
--- Database: `jam13`
---
-
--- --------------------------------------------------------
-
---
--- Table structure for table `Advert`
---
 
 CREATE TABLE `Advert` (
   `advertID` int(6) NOT NULL,
@@ -28,32 +10,17 @@ CREATE TABLE `Advert` (
   `type` varchar(8) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- --------------------------------------------------------
-
---
--- Table structure for table `Campaign`
---
 
 CREATE TABLE `Campaign` (
   `campaignID` int(6) NOT NULL,
   `clientID` int(6) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- --------------------------------------------------------
-
---
--- Table structure for table `Client`
---
 
 CREATE TABLE `Client` (
   `clientID` int(6) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- --------------------------------------------------------
-
---
--- Table structure for table `Invoice`
---
 
 CREATE TABLE `Invoice` (
   `invoiceID` int(6) NOT NULL,
@@ -62,11 +29,6 @@ CREATE TABLE `Invoice` (
   `cost` int(16) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- --------------------------------------------------------
-
---
--- Table structure for table `Magazine`
---
 
 CREATE TABLE `Magazine` (
   `advertID` int(6) NOT NULL,
@@ -76,11 +38,6 @@ CREATE TABLE `Magazine` (
   `frequency` int(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- --------------------------------------------------------
-
---
--- Table structure for table `TV&Radio`
---
 
 CREATE TABLE `TV&Radio` (
   `advertID` int(6) NOT NULL,
@@ -90,11 +47,6 @@ CREATE TABLE `TV&Radio` (
   `broadcastingNo` int(3) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- --------------------------------------------------------
-
---
--- Table structure for table `Web`
---
 
 CREATE TABLE `Web` (
   `advertID` int(6) NOT NULL,
@@ -104,11 +56,6 @@ CREATE TABLE `Web` (
   `views` int(8) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- --------------------------------------------------------
-
---
--- Table structure for table `WorkDone`
---
 
 CREATE TABLE `WorkDone` (
   `campaignID` int(6) NOT NULL,
@@ -116,66 +63,40 @@ CREATE TABLE `WorkDone` (
   `hoursWorked` int(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Indexes for dumped tables
---
 
---
--- Indexes for table `Advert`
---
 ALTER TABLE `Advert`
   ADD PRIMARY KEY (`advertID`),
   ADD KEY `campaignID` (`campaignID`);
 
---
--- Indexes for table `Campaign`
---
+
 ALTER TABLE `Campaign`
   ADD PRIMARY KEY (`campaignID`);
 
---
--- Indexes for table `Client`
---
+
 ALTER TABLE `Client`
   ADD PRIMARY KEY (`clientID`);
 
---
--- Indexes for table `Invoice`
---
+
 ALTER TABLE `Invoice`
   ADD PRIMARY KEY (`invoiceID`);
 
---
--- Indexes for table `Magazine`
---
+
 ALTER TABLE `Magazine`
   ADD KEY `advertID` (`advertID`);
 
---
--- Indexes for table `Web`
---
+
 ALTER TABLE `Web`
   ADD KEY `advertID` (`advertID`);
 
---
--- Constraints for dumped tables
---
 
---
--- Constraints for table `Advert`
---
 ALTER TABLE `Advert`
   ADD CONSTRAINT `Advert_ibfk_1` FOREIGN KEY (`campaignID`) REFERENCES `Campaign` (`campaignID`);
 
---
--- Constraints for table `Magazine`
---
+
 ALTER TABLE `Magazine`
   ADD CONSTRAINT `Magazine_ibfk_1` FOREIGN KEY (`advertID`) REFERENCES `Advert` (`advertID`);
 
---
--- Constraints for table `Web`
---
+
 ALTER TABLE `Web`
   ADD CONSTRAINT `Web_ibfk_1` FOREIGN KEY (`advertID`) REFERENCES `Advert` (`advertID`);
 COMMIT;
