@@ -1,7 +1,8 @@
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
-SET time_zone = "+00:00";
+CREATE TABLE `Campaign` (
+  `campaignID` int(6) NOT NULL,
+  `clientID` int(6) NOT NULL,
+  PRIMARY KEY(campaignID)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
 CREATE TABLE `Advert` (
@@ -10,13 +11,6 @@ CREATE TABLE `Advert` (
   `type` varchar(8) NOT NULL,
   PRIMARY KEY (advertID),
   FOREIGN KEY (campaignID) REFERENCES Campaign(campaignID)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
-
-CREATE TABLE `Campaign` (
-  `campaignID` int(6) NOT NULL,
-  `clientID` int(6) NOT NULL,
-  PRIMARY KEY(campaignID)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
