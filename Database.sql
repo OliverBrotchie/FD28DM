@@ -139,16 +139,16 @@ INSERT INTO `Client` (`clientID`, `personID`, `companyName`) VALUES (8, 18, 'com
 INSERT INTO `Client` (`clientID`, `personID`, `companyName`) VALUES (9, 19, 'company');
 INSERT INTO `Client` (`clientID`, `personID`, `companyName`) VALUES (10, 20, 'company');
 
-INSERT INTO `Campaign` (`campaignID`, `clientID`, `startDate`, `endDate`) VALUES (1, 1, '15.08.2018', '15.02.2019');
-INSERT INTO `Campaign` (`campaignID`, `clientID`, `startDate`, `endDate`) VALUES (2, 2, '24.12.2018', '24.06.2019');
-INSERT INTO `Campaign` (`campaignID`, `clientID`, `startDate`, `endDate`) VALUES (3, 3, '29.04.2018', '29.10.2018');
-INSERT INTO `Campaign` (`campaignID`, `clientID`, `startDate`, `endDate`) VALUES (4, 4, '07.03.2018', '07.09.2018');
-INSERT INTO `Campaign` (`campaignID`, `clientID`, `startDate`, `endDate`) VALUES (5, 5, '17.01.2018', '17.07.2018');
-INSERT INTO `Campaign` (`campaignID`, `clientID`, `startDate`, `endDate`) VALUES (6, 6, '30.01.2019', '30.07.2019');
-INSERT INTO `Campaign` (`campaignID`, `clientID`, `startDate`, `endDate`) VALUES (7, 7, '22.07.2018', '22.01.2019');
-INSERT INTO `Campaign` (`campaignID`, `clientID`, `startDate`, `endDate`) VALUES (8, 8, '14.10.2018', '14.04.2019');
-INSERT INTO `Campaign` (`campaignID`, `clientID`, `startDate`, `endDate`) VALUES (9, 9, '03.05.2018', '03.11.2018');
-INSERT INTO `Campaign` (`campaignID`, `clientID`, `startDate`, `endDate`) VALUES (10, 10, '11.08.2018', '11.02.2019');
+INSERT INTO `Campaign` (`campaignID`, `clientID`, `startDate`, `endDate`) VALUES (1, 1, '2018.08.15', '2018.02.15');
+INSERT INTO `Campaign` (`campaignID`, `clientID`, `startDate`, `endDate`) VALUES (2, 2, '2018.12.24', '2018.06.24');
+INSERT INTO `Campaign` (`campaignID`, `clientID`, `startDate`, `endDate`) VALUES (3, 3, '2018.04.29', '2018.10.29');
+INSERT INTO `Campaign` (`campaignID`, `clientID`, `startDate`, `endDate`) VALUES (4, 4, '2018.03.07', '2018.09.07');
+INSERT INTO `Campaign` (`campaignID`, `clientID`, `startDate`, `endDate`) VALUES (5, 5, '2018.01.17', '2018.07.17');
+INSERT INTO `Campaign` (`campaignID`, `clientID`, `startDate`, `endDate`) VALUES (6, 6, '2018.01.30', '2019.07.30');
+INSERT INTO `Campaign` (`campaignID`, `clientID`, `startDate`, `endDate`) VALUES (7, 7, '2018.07.22', '2019.01.22');
+INSERT INTO `Campaign` (`campaignID`, `clientID`, `startDate`, `endDate`) VALUES (8, 8, '2018.10.14', '2019.04.14');
+INSERT INTO `Campaign` (`campaignID`, `clientID`, `startDate`, `endDate`) VALUES (9, 9, '2018.05.03', '2018.11.03');
+INSERT INTO `Campaign` (`campaignID`, `clientID`, `startDate`, `endDate`) VALUES (10, 10, '2018.08.11', '2019.02.11');
 
 INSERT INTO `Advert` (`advertID`, `campaignID`, `type`) VALUES (1, 1, 'Magazine');
 INSERT INTO `Advert` (`advertID`, `campaignID`, `type`) VALUES (2, 2, 'TV and Radio');
