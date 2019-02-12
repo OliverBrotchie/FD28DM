@@ -128,16 +128,16 @@ INSERT INTO `Employee` (`employeeID`, `personID`, `workEmail`) VALUES (8, 8, 'rq
 INSERT INTO `Employee` (`employeeID`, `personID`, `workEmail`) VALUES (9, 9, 'jdebitis@company.com');
 INSERT INTO `Employee` (`employeeID`, `personID`, `workEmail`) VALUES (10, 10, 'jet@company.com');
 
-INSERT INTO `Client` (`clientID`, `personID`, `company`) VALUES (1, 11, 'company');
-INSERT INTO `Client` (`clientID`, `personID`, `company`) VALUES (2, 12, 'company');
-INSERT INTO `Client` (`clientID`, `personID`, `company`) VALUES (3, 13, 'company');
-INSERT INTO `Client` (`clientID`, `personID`, `company`) VALUES (4, 14, 'company');
-INSERT INTO `Client` (`clientID`, `personID`, `company`) VALUES (5, 15, 'company');
-INSERT INTO `Client` (`clientID`, `personID`, `company`) VALUES (6, 16, 'company');
-INSERT INTO `Client` (`clientID`, `personID`, `company`) VALUES (7, 17, 'company');
-INSERT INTO `Client` (`clientID`, `personID`, `company`) VALUES (8, 18, 'company');
-INSERT INTO `Client` (`clientID`, `personID`, `company`) VALUES (9, 19, 'company');
-INSERT INTO `Client` (`clientID`, `personID`, `company`) VALUES (10, 20, 'company');
+INSERT INTO `Client` (`clientID`, `personID`, `companyName`) VALUES (1, 11, 'company');
+INSERT INTO `Client` (`clientID`, `personID`, `companyName`) VALUES (2, 12, 'company');
+INSERT INTO `Client` (`clientID`, `personID`, `companyName`) VALUES (3, 13, 'company');
+INSERT INTO `Client` (`clientID`, `personID`, `companyName`) VALUES (4, 14, 'company');
+INSERT INTO `Client` (`clientID`, `personID`, `companyName`) VALUES (5, 15, 'company');
+INSERT INTO `Client` (`clientID`, `personID`, `companyName`) VALUES (6, 16, 'company');
+INSERT INTO `Client` (`clientID`, `personID`, `companyName`) VALUES (7, 17, 'company');
+INSERT INTO `Client` (`clientID`, `personID`, `companyName`) VALUES (8, 18, 'company');
+INSERT INTO `Client` (`clientID`, `personID`, `companyName`) VALUES (9, 19, 'company');
+INSERT INTO `Client` (`clientID`, `personID`, `companyName`) VALUES (10, 20, 'company');
 
 INSERT INTO `Campaign` (`campaignID`, `clientID`, `startDate`, `endDate`) VALUES (1, 1, '15/08/2018', '15/02/2019');
 INSERT INTO `Campaign` (`campaignID`, `clientID`, `startDate`, `endDate`) VALUES (2, 2, '24/12/2018', '24/06/2019');
