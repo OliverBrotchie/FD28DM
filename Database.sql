@@ -39,9 +39,10 @@ CREATE TABLE `Campaign` (
 CREATE TABLE `Advert` (
   `advertID` int(6) NOT NULL AUTO_INCREMENT,
   `campaignID` int(6) NOT NULL,
-  `type` varchar(8) NOT NULL,
+  `type` varchar(5) NOT NULL,
   PRIMARY KEY (`advertID`),
-  FOREIGN KEY (campaignID) REFERENCES Campaign(campaignID)
+  FOREIGN KEY (campaignID) REFERENCES Campaign(campaignID),
+  CONSTRAINT type CHECK (type IN ('web', 'mag', 'tv', 'radio'))
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
@@ -150,16 +151,16 @@ INSERT INTO `Campaign` (`campaignID`, `clientID`, `startDate`, `endDate`) VALUES
 INSERT INTO `Campaign` (`campaignID`, `clientID`, `startDate`, `endDate`) VALUES (9, 9, '2018.05.03', '2018.11.03');
 INSERT INTO `Campaign` (`campaignID`, `clientID`, `startDate`, `endDate`) VALUES (10, 10, '2018.08.11', '2019.02.11');
 
-INSERT INTO `Advert` (`advertID`, `campaignID`, `type`) VALUES (1, 1, 'Magazine');
-INSERT INTO `Advert` (`advertID`, `campaignID`, `type`) VALUES (2, 2, 'TV and Radio');
-INSERT INTO `Advert` (`advertID`, `campaignID`, `type`) VALUES (3, 3, 'Web');
-INSERT INTO `Advert` (`advertID`, `campaignID`, `type`) VALUES (4, 4, 'Web');
-INSERT INTO `Advert` (`advertID`, `campaignID`, `type`) VALUES (5, 5, 'TV and Radio');
-INSERT INTO `Advert` (`advertID`, `campaignID`, `type`) VALUES (6, 6, 'Magazine');
-INSERT INTO `Advert` (`advertID`, `campaignID`, `type`) VALUES (7, 7, 'TV and Radio');
-INSERT INTO `Advert` (`advertID`, `campaignID`, `type`) VALUES (8, 8, 'Magazine');
-INSERT INTO `Advert` (`advertID`, `campaignID`, `type`) VALUES (9, 9, 'Web');
-INSERT INTO `Advert` (`advertID`, `campaignID`, `type`) VALUES (10, 10, 'TV and Radio');
+INSERT INTO `Advert` (`advertID`, `campaignID`, `type`) VALUES (1, 1, 'mag');
+INSERT INTO `Advert` (`advertID`, `campaignID`, `type`) VALUES (2, 2, 'tv');
+INSERT INTO `Advert` (`advertID`, `campaignID`, `type`) VALUES (3, 3, 'web');
+INSERT INTO `Advert` (`advertID`, `campaignID`, `type`) VALUES (4, 4, 'web');
+INSERT INTO `Advert` (`advertID`, `campaignID`, `type`) VALUES (5, 5, 'radio');
+INSERT INTO `Advert` (`advertID`, `campaignID`, `type`) VALUES (6, 6, 'mag');
+INSERT INTO `Advert` (`advertID`, `campaignID`, `type`) VALUES (7, 7, 'tv');
+INSERT INTO `Advert` (`advertID`, `campaignID`, `type`) VALUES (8, 8, 'mag');
+INSERT INTO `Advert` (`advertID`, `campaignID`, `type`) VALUES (9, 9, 'web');
+INSERT INTO `Advert` (`advertID`, `campaignID`, `type`) VALUES (10, 10, 'radio');
 
 INSERT INTO Invoice (`invoiceID`, `campaignID`, `clientID`, `cost`) VALUES ( 1, 1, 1, 61);
 INSERT INTO Invoice (`invoiceID`, `campaignID`, `clientID`, `cost`) VALUES ( 2, 2, 2, 81);
