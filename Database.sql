@@ -3,7 +3,7 @@ CREATE TABLE   `PersonalInfo` (
   `firstName` varchar(15) NOT NULL,
   `secondName` varchar(20) NOT NULL,
   `emailAddress` varchar(30) NOT NULL UNIQUE,
-  `phoneNumber` int(15) NOT NULL,
+  `phoneNumber` int(20) NOT NULL,
   PRIMARY KEY(`personID`)
  ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
