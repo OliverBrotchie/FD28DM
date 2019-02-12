@@ -1,2 +1,5 @@
-Need to create multiple adverts for each campaign
+Need to create multiple adverts for each campaign.
 
+Complete specific details for all inserts.
+
+Multiple campaigns to multiple Employees.
