@@ -149,3 +149,14 @@ INSERT INTO `Campaign` (`campaignID`, `clientID`, `startDate`, `endDate`) VALUES
 INSERT INTO `Campaign` (`campaignID`, `clientID`, `startDate`, `endDate`) VALUES (8, 8, '14/10/2018', '14/04/2019');
 INSERT INTO `Campaign` (`campaignID`, `clientID`, `startDate`, `endDate`) VALUES (9, 9, '03/05/2018', '03/11/2018');
 INSERT INTO `Campaign` (`campaignID`, `clientID`, `startDate`, `endDate`) VALUES (10, 10, '11/08/2018', '11/02/2019');
+
+INSERT INTO `Advert` (`advertID`, `campaignID`, `type`) VALUES (1, 1, 'Magazine');
+INSERT INTO `Advert` (`advertID`, `campaignID`, `type`) VALUES (2, 2, 'TV and Radio');
+INSERT INTO `Advert` (`advertID`, `campaignID`, `type`) VALUES (3, 3, 'Web');
+INSERT INTO `Advert` (`advertID`, `campaignID`, `type`) VALUES (4, 4, 'Web');
+INSERT INTO `Advert` (`advertID`, `campaignID`, `type`) VALUES (5, 5, 'TV and Radio');
+INSERT INTO `Advert` (`advertID`, `campaignID`, `type`) VALUES (6, 6, 'Magazine');
+INSERT INTO `Advert` (`advertID`, `campaignID`, `type`) VALUES (7, 7, 'TV and Radio');
+INSERT INTO `Advert` (`advertID`, `campaignID`, `type`) VALUES (8, 8, 'Magazine');
+INSERT INTO `Advert` (`advertID`, `campaignID`, `type`) VALUES (9, 9, 'Web');
+INSERT INTO `Advert` (`advertID`, `campaignID`, `type`) VALUES (10, 10, 'TV and Radio');
