@@ -180,3 +180,23 @@ INSERT INTO TV&Radio (`advertID`, `slot`, `length`, `station`, `broadcastingNo`)
 INSERT INTO TV&Radio (`advertID`, `slot`, `length`, `station`, `broadcastingNo`) VALUES (5, '10:00', '120', 'ITV', 15);
 INSERT INTO TV&Radio (`advertID`, `slot`, `length`, `station`, `broadcastingNo`) VALUES (7, '13:00', '120', 'BBC Radio4', 35);
 INSERT INTO TV&Radio (`advertID`, `slot`, `length`, `station`, `broadcastingNo`) VALUES (10, '07:00', '120', 'BBC Radio1', 50);
+
+INSERT INTO Web (`advertID`, `company`, `demographic`, `region`, `views`) VALUES (3, 'company', 'demo', 'region', 'views');
+INSERT INTO Web (`advertID`, `company`, `demographic`, `region`, `views`) VALUES (4, 'company', 'demo', 'region', 'views');
+INSERT INTO Web (`advertID`, `company`, `demographic`, `region`, `views`) VALUES (9, 'company', 'demo', 'region', 'views');
+
+INSERT INTO WorkDone (`campaignID`, `employeeID`, `hoursWorked`) VALUES (1, 1, 12);
+INSERT INTO WorkDone (`campaignID`, `employeeID`, `hoursWorked`) VALUES (1, 1, 12);
+INSERT INTO WorkDone (`campaignID`, `employeeID`, `hoursWorked`) VALUES (1, 1, 12);
+INSERT INTO WorkDone (`campaignID`, `employeeID`, `hoursWorked`) VALUES (1, 1, 12);
+INSERT INTO WorkDone (`campaignID`, `employeeID`, `hoursWorked`) VALUES (1, 1, 12);
+INSERT INTO WorkDone (`campaignID`, `employeeID`, `hoursWorked`) VALUES (1, 1, 12);
+INSERT INTO WorkDone (`campaignID`, `employeeID`, `hoursWorked`) VALUES (1, 1, 12);
+INSERT INTO WorkDone (`campaignID`, `employeeID`, `hoursWorked`) VALUES (1, 1, 12);
+INSERT INTO WorkDone (`campaignID`, `employeeID`, `hoursWorked`) VALUES (1, 1, 12);
+INSERT INTO WorkDone (`campaignID`, `employeeID`, `hoursWorked`) VALUES (1, 1, 12);
+INSERT INTO WorkDone (`campaignID`, `employeeID`, `hoursWorked`) VALUES (1, 1, 12);
+INSERT INTO WorkDone (`campaignID`, `employeeID`, `hoursWorked`) VALUES (1, 1, 12);
+INSERT INTO WorkDone (`campaignID`, `employeeID`, `hoursWorked`) VALUES (1, 1, 12);
+INSERT INTO WorkDone (`campaignID`, `employeeID`, `hoursWorked`) VALUES (1, 1, 12);
+INSERT INTO WorkDone (`campaignID`, `employeeID`, `hoursWorked`) VALUES (1, 1, 12);
