@@ -38,7 +38,7 @@ CREATE TABLE `Campaign` (
 
 CREATE TABLE `Advert` (
   `advertID` int(6) NOT NULL AUTO_INCREMENT,
-  `campaignID` int(6) NOT NULL UNIQUE,
+  `campaignID` int(6) NOT NULL,
   `type` varchar(8) NOT NULL,
   PRIMARY KEY (`advertID`),
   FOREIGN KEY (campaignID) REFERENCES Campaign(campaignID)
@@ -175,3 +175,8 @@ INSERT INTO Invoice (`invoiceID`, `campaignID`, `clientID`, `cost`) VALUES ( 10,
 INSERT INTO Magazine (`advertID`, `magazineID`, `size`, `position`, `frequency`) VALUES (1, 1, 'large', 'Top Right', 80);
 INSERT INTO Magazine (`advertID`, `magazineID`, `size`, `position`, `frequency`) VALUES (6, 2, 'small', 'Middle Centre', 150);
 INSERT INTO Magazine (`advertID`, `magazineID`, `size`, `position`, `frequency`) VALUES (8, 3, 'medium', 'Bottomm Right', 110);
+
+INSERT INTO TV&Radio (`advertID`, `slot`, `length`, `station`, `broadcastingNo`) VALUES (2, '18:00', '120', 'BBC1', 25);
+INSERT INTO TV&Radio (`advertID`, `slot`, `length`, `station`, `broadcastingNo`) VALUES (5, '10:00', '120', 'ITV', 15);
+INSERT INTO TV&Radio (`advertID`, `slot`, `length`, `station`, `broadcastingNo`) VALUES (7, '13:00', '120', 'BBC Radio4', 35);
+INSERT INTO TV&Radio (`advertID`, `slot`, `length`, `station`, `broadcastingNo`) VALUES (10, '07:00', '120', 'BBC Radio1', 50);
