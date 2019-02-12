@@ -127,3 +127,14 @@ INSERT INTO `Employee` (`employeeID`, `personID`, `workEmail`) VALUES (7, 7, 'ku
 INSERT INTO `Employee` (`employeeID`, `personID`, `workEmail`) VALUES (8, 8, 'rquibusdam@company.com');
 INSERT INTO `Employee` (`employeeID`, `personID`, `workEmail`) VALUES (9, 9, 'jdebitis@company.com');
 INSERT INTO `Employee` (`employeeID`, `personID`, `workEmail`) VALUES (10, 10, 'jet@company.com');
+
+INSERT INTO `Client` (`clientID`, `personID`, `company`) VALUES (1, 11, 'company');
+INSERT INTO `Client` (`clientID`, `personID`, `company`) VALUES (2, 12, 'company');
+INSERT INTO `Client` (`clientID`, `personID`, `company`) VALUES (3, 13, 'company');
+INSERT INTO `Client` (`clientID`, `personID`, `company`) VALUES (4, 14, 'company');
+INSERT INTO `Client` (`clientID`, `personID`, `company`) VALUES (5, 15, 'company');
+INSERT INTO `Client` (`clientID`, `personID`, `company`) VALUES (6, 16, 'company');
+INSERT INTO `Client` (`clientID`, `personID`, `company`) VALUES (7, 17, 'company');
+INSERT INTO `Client` (`clientID`, `personID`, `company`) VALUES (8, 18, 'company');
+INSERT INTO `Client` (`clientID`, `personID`, `company`) VALUES (9, 19, 'company');
+INSERT INTO `Client` (`clientID`, `personID`, `company`) VALUES (10, 20, 'company');
