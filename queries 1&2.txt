@@ -1,6 +1,6 @@
 SELECT employeeID
 FROM WorkDone
-INNER JOIN advertID ON WorkDone.advertID=TV&Radio.advertID;
+INNER JOIN advertID ON WorkDone.advertID=TVRadio.advertID;
 
 SELECT COUNT(clientID)
 FROM Campaign 
