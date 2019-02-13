@@ -186,10 +186,7 @@ INSERT INTO Invoice (`invoiceID`, `campaignID`, `clientID`, `cost`) VALUES ( 10,
 INSERT INTO Magazine (`advertID`, `companyID`, `textSize`, `position`, `number`) VALUES (1, 1, 'large', 'top-right', 6);
 INSERT INTO Magazine (`advertID`, `companyID`, `textSize`, `position`, `number`) VALUES (6, 9, 'small', 'middle-center', 3);
 INSERT INTO Magazine (`advertID`, `companyID`, `textSize`, `position`, `number`) VALUES (8, 10, 'medium', 'bottom-left', 1);
-
-                                  /*working untill here*/
-                        /* ----------------------------------------*/
-                         
+                    
                          
 INSERT INTO TVRadio (`advertID`, `slot`, `runTime`, `companyID`, `broadcastingNo`, `form`) VALUES (10, 18.00, 120, 2, 25,'radio');
 INSERT INTO TVRadio (`advertID`, `slot`, `runTime`, `companyID`, `broadcastingNo`, `form`) VALUES (2, 10.00, 120, 2, 15,'tv');
@@ -202,6 +199,9 @@ INSERT INTO Web (`advertID`, `companyID`, `demographic`, `region`, `views`) VALU
 INSERT INTO Web (`advertID`, `companyID`, `demographic`, `region`, `views`) VALUES (9, 4, '15<', 'region', 100);
 
 
+                                
+                                
+                                
 INSERT INTO WorkDone (`campaignID`, `employeeID`, `hoursWorked`) VALUES (1, 1, 12);
 INSERT INTO WorkDone (`campaignID`, `employeeID`, `hoursWorked`) VALUES (1, 1, 12);
 INSERT INTO WorkDone (`campaignID`, `employeeID`, `hoursWorked`) VALUES (1, 1, 12);
