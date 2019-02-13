@@ -63,13 +63,13 @@ CREATE TABLE `Invoice` (
 CREATE TABLE `Magazine` (
   `advertID` int(6) NOT NULL AUTO_INCREMENT,
   `companyID` int(6) NOT NULL,
-  `size` varchar(16) NOT NULL,
+  `textSize` varchar(16) NOT NULL,
   `position` varchar(16) NOT NULL,
   `number` int(4) NOT NULL,
   PRIMARY KEY (`advertID`),
   FOREIGN KEY (advertID) REFERENCES Advert(advertID),
   FOREIGN KEY(companyID) REFERENCES Company(companyID),
-  CONSTRAINT size CHECK (size IN('small','medium','large')),
+  CONSTRAINT textSize CHECK (textSize IN('small','medium','large')),
   CONSTRAINT position CHECK (position IN ('top-right', 'top-center', 'top-left','middle-right', 'middle-center', 'middle-left','bottom-right', 'bottom-center', 'bottom-left', 'custom'))                                      
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -182,18 +182,18 @@ INSERT INTO Invoice (`invoiceID`, `campaignID`, `clientID`, `cost`) VALUES ( 8, 
 INSERT INTO Invoice (`invoiceID`, `campaignID`, `clientID`, `cost`) VALUES ( 9, 9, 9, 64);
 INSERT INTO Invoice (`invoiceID`, `campaignID`, `clientID`, `cost`) VALUES ( 10, 10, 10, 48);
                              
-INSERT INTO Magazine (`advertID`, `companyID`, `size`, `position`, `number`) VALUES (1, 1, 'large', 'top-right', 6);
-INSERT INTO Magazine (`advertID`, `companyID`, `size`, `position`, `number`) VALUES (6, 9, 'small', 'middle-center', 3);
-INSERT INTO Magazine (`advertID`, `companyID`, `size`, `position`, `number`) VALUES (8, 10, 'medium', 'bottom-left', 1);
+INSERT INTO Magazine (`advertID`, `companyID`, `textSize`, `position`, `number`) VALUES (1, 1, 'large', 'top-right', 6);
+INSERT INTO Magazine (`advertID`, `companyID`, `textSize`, `position`, `number`) VALUES (6, 9, 'small', 'middle-center', 3);
+INSERT INTO Magazine (`advertID`, `companyID`, `textSize`, `position`, `number`) VALUES (8, 10, 'medium', 'bottom-left', 1);
 
                                   /*working untill here*/
                         /* ----------------------------------------*/
                          
                          
-INSERT INTO TVRadio (`advertID`, `slot`, `runTime`, `companyID`, `broadcastingNo`, `form`) VALUES (2, 18:00:00, 120, 2, 25,'radio');
-INSERT INTO TVRadio (`advertID`, `slot`, `runTime`, `companyID`, `broadcastingNo`, `form`) VALUES (5, 10:00:00, 120, 2, 15,'tv');
-INSERT INTO TVRadio (`advertID`, `slot`, `runTime`, `companyID`, `broadcastingNo`, `form`) VALUES (7, 13:00:00, 120, 1, 35,'radio');
-INSERT INTO TVRadio (`advertID`, `slot`, `runTime`, `companyID`, `broadcastingNo`, `form`) VALUES (10, 07:00:00, 120, 1, 50,'tv');
+INSERT INTO TVRadio (`advertID`, `slot`, `runTime`, `companyID`, `broadcastingNo`, `form`) VALUES (10, 18.00, 120, 2, 25,'radio');
+INSERT INTO TVRadio (`advertID`, `slot`, `runTime`, `companyID`, `broadcastingNo`, `form`) VALUES (2, 10.00, 120, 2, 15,'tv');
+INSERT INTO TVRadio (`advertID`, `slot`, `runTime`, `companyID`, `broadcastingNo`, `form`) VALUES (5, 13.00, 120, 1, 35,'radio');
+INSERT INTO TVRadio (`advertID`, `slot`, `runTime`, `companyID`, `broadcastingNo`, `form`) VALUES (7, 07.00, 120, 1, 50,'tv');
 
                          
 INSERT INTO Web (`advertID`, `companyID`, `demographic`, `region`, `views`) VALUES (3, 5, '16-30', 'region', 'views');
