@@ -199,7 +199,7 @@ INSERT INTO TVRadio (`advertID`, `slot`, `runTime`, `companyID`, `broadcastingNo
                          
 INSERT INTO Web (`advertID`, `companyID`, `demographic`, `region`, `views`) VALUES (3, 5, '16-30', 'region', 100);
 INSERT INTO Web (`advertID`, `companyID`, `demographic`, `region`, `views`) VALUES (4, 8, '35-65', 'region', 100);
-INSERT INTO Web (`advertID`, `companyID`, `demographic`, `region`, `views`) VALUES (9, 4, '16+', 'region', 100);
+INSERT INTO Web (`advertID`, `companyID`, `demographic`, `region`, `views`) VALUES (9, 4, '15<', 'region', 100);
 
 
 INSERT INTO WorkDone (`campaignID`, `employeeID`, `hoursWorked`) VALUES (1, 1, 12);
