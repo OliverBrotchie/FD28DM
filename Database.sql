@@ -96,7 +96,8 @@ CREATE TABLE `Web` (
   `views` int(8) NOT NULL,
   PRIMARY KEY(`advertID`),
   FOREIGN KEY (advertID) REFERENCES Advert(advertID),
-  FOREIGN KEY(companyID) REFERENCES Company(companyID)
+  FOREIGN KEY(companyID) REFERENCES Company(companyID),
+  CONSTRAINT demographic CHECK (demographic IN( '%-%', '<%', '%<' ))
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
