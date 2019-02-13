@@ -80,11 +80,9 @@ CREATE TABLE `TVRadio` (
   `runTime` int(5) NOT NULL,
   `companyID` int(6) NOT NULL,
   `broadcastingNo` int(3) NOT NULL,
-  `form` varchar(5) NOT NULL,
   PRIMARY KEY(`advertID`),
   FOREIGN KEY (advertID) REFERENCES Advert(advertID),
-  FOREIGN KEY(companyID) REFERENCES Company(companyID),
-  CONSTRAINT form CHECK (form IN('tv','radio'))
+  FOREIGN KEY(companyID) REFERENCES Company(companyID)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
@@ -188,10 +186,10 @@ INSERT INTO Magazine (`advertID`, `companyID`, `textSize`, `position`, `number`)
 INSERT INTO Magazine (`advertID`, `companyID`, `textSize`, `position`, `number`) VALUES (8, 10, 'medium', 'bottom-left', 1);
                     
                          
-INSERT INTO TVRadio (`advertID`, `slot`, `runTime`, `companyID`, `broadcastingNo`, `form`) VALUES (10, 18.00, 120, 2, 25,'radio');
-INSERT INTO TVRadio (`advertID`, `slot`, `runTime`, `companyID`, `broadcastingNo`, `form`) VALUES (2, 10.00, 120, 2, 15,'tv');
-INSERT INTO TVRadio (`advertID`, `slot`, `runTime`, `companyID`, `broadcastingNo`, `form`) VALUES (5, 13.00, 120, 1, 35,'radio');
-INSERT INTO TVRadio (`advertID`, `slot`, `runTime`, `companyID`, `broadcastingNo`, `form`) VALUES (7, 07.00, 120, 1, 50,'tv');
+INSERT INTO TVRadio (`advertID`, `slot`, `runTime`, `companyID`, `broadcastingNo`) VALUES (10, 18.00, 120, 2, 25);
+INSERT INTO TVRadio (`advertID`, `slot`, `runTime`, `companyID`, `broadcastingNo`) VALUES (2, 10.00, 120, 2, 15);
+INSERT INTO TVRadio (`advertID`, `slot`, `runTime`, `companyID`, `broadcastingNo`) VALUES (5, 13.00, 120, 1, 35);
+INSERT INTO TVRadio (`advertID`, `slot`, `runTime`, `companyID`, `broadcastingNo`) VALUES (7, 07.00, 120, 1, 50);
 
                          
 INSERT INTO Web (`advertID`, `companyID`, `demographic`, `region`, `views`) VALUES (3, 5, '16-30', 'region', 100);
