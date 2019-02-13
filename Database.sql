@@ -103,7 +103,7 @@ CREATE TABLE `Web` (
 
 CREATE TABLE `WorkDone` (
   `campaignID` int(6) NOT NULL UNIQUE,
-  `employeeID` int(6) NOT NULL UNIQUE,
+  `employeeID` int(6) NOT NULL,
   `hoursWorked` int(4) NOT NULL,
   PRIMARY KEY(`campaignID`, `employeeID`),
   FOREIGN KEY (campaignID) REFERENCES Campaign(campaignID)
@@ -198,22 +198,10 @@ INSERT INTO Web (`advertID`, `companyID`, `demographic`, `region`, `views`) VALU
 INSERT INTO Web (`advertID`, `companyID`, `demographic`, `region`, `views`) VALUES (4, 8, '35-65', 'region', 100);
 INSERT INTO Web (`advertID`, `companyID`, `demographic`, `region`, `views`) VALUES (9, 4, '15<', 'region', 100);
 
+								/*-------------------------*/
+									 /*Works till here*/
+								/*-------------------------*/
 
-                                
-                                
-                                
 INSERT INTO WorkDone (`campaignID`, `employeeID`, `hoursWorked`) VALUES (1, 1, 12);
-INSERT INTO WorkDone (`campaignID`, `employeeID`, `hoursWorked`) VALUES (1, 1, 12);
-INSERT INTO WorkDone (`campaignID`, `employeeID`, `hoursWorked`) VALUES (1, 1, 12);
-INSERT INTO WorkDone (`campaignID`, `employeeID`, `hoursWorked`) VALUES (1, 1, 12);
-INSERT INTO WorkDone (`campaignID`, `employeeID`, `hoursWorked`) VALUES (1, 1, 12);
-INSERT INTO WorkDone (`campaignID`, `employeeID`, `hoursWorked`) VALUES (1, 1, 12);
-INSERT INTO WorkDone (`campaignID`, `employeeID`, `hoursWorked`) VALUES (1, 1, 12);
-INSERT INTO WorkDone (`campaignID`, `employeeID`, `hoursWorked`) VALUES (1, 1, 12);
-INSERT INTO WorkDone (`campaignID`, `employeeID`, `hoursWorked`) VALUES (1, 1, 12);
-INSERT INTO WorkDone (`campaignID`, `employeeID`, `hoursWorked`) VALUES (1, 1, 12);
-INSERT INTO WorkDone (`campaignID`, `employeeID`, `hoursWorked`) VALUES (1, 1, 12);
-INSERT INTO WorkDone (`campaignID`, `employeeID`, `hoursWorked`) VALUES (1, 1, 12);
-INSERT INTO WorkDone (`campaignID`, `employeeID`, `hoursWorked`) VALUES (1, 1, 12);
-INSERT INTO WorkDone (`campaignID`, `employeeID`, `hoursWorked`) VALUES (1, 1, 12);
-INSERT INTO WorkDone (`campaignID`, `employeeID`, `hoursWorked`) VALUES (1, 1, 12);
+INSERT INTO WorkDone (`campaignID`, `employeeID`, `hoursWorked`) VALUES (2, 1, 12);
+INSERT INTO WorkDone (`campaignID`, `employeeID`, `hoursWorked`) VALUES (3, 1, 12);
