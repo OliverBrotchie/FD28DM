@@ -102,7 +102,7 @@ CREATE TABLE `Web` (
 
 
 CREATE TABLE `WorkDone` (
-  `campaignID` int(6) NOT NULL UNIQUE,
+  `campaignID` int(6) NOT NULL,
   `employeeID` int(6) NOT NULL,
   `hoursWorked` int(4) NOT NULL,
   PRIMARY KEY(`campaignID`, `employeeID`),
@@ -198,10 +198,13 @@ INSERT INTO Web (`advertID`, `companyID`, `demographic`, `region`, `views`) VALU
 INSERT INTO Web (`advertID`, `companyID`, `demographic`, `region`, `views`) VALUES (4, 8, '35-65', 'region', 100);
 INSERT INTO Web (`advertID`, `companyID`, `demographic`, `region`, `views`) VALUES (9, 4, '15<', 'region', 100);
 
-								/*-------------------------*/
-									 /*Works till here*/
-								/*-------------------------*/
 
 INSERT INTO WorkDone (`campaignID`, `employeeID`, `hoursWorked`) VALUES (1, 1, 12);
-INSERT INTO WorkDone (`campaignID`, `employeeID`, `hoursWorked`) VALUES (2, 1, 12);
-INSERT INTO WorkDone (`campaignID`, `employeeID`, `hoursWorked`) VALUES (3, 1, 12);
+INSERT INTO WorkDone (`campaignID`, `employeeID`, `hoursWorked`) VALUES (1, 5, 21);
+INSERT INTO WorkDone (`campaignID`, `employeeID`, `hoursWorked`) VALUES (1, 7, 4);
+INSERT INTO WorkDone (`campaignID`, `employeeID`, `hoursWorked`) VALUES (2, 9, 28);
+INSERT INTO WorkDone (`campaignID`, `employeeID`, `hoursWorked`) VALUES (2, 3, 30);
+INSERT INTO WorkDone (`campaignID`, `employeeID`, `hoursWorked`) VALUES (3, 2, 7);
+INSERT INTO WorkDone (`campaignID`, `employeeID`, `hoursWorked`) VALUES (3, 7, 18);
+INSERT INTO WorkDone (`campaignID`, `employeeID`, `hoursWorked`) VALUES (3, 4, 20);
+INSERT INTO WorkDone (`campaignID`, `employeeID`, `hoursWorked`) VALUES (3, 6, 16);
