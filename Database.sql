@@ -44,10 +44,10 @@ CREATE TABLE `Campaign` (
 CREATE TABLE `Advert` (
   `advertID` int(6) NOT NULL AUTO_INCREMENT,
   `campaignID` int(6) NOT NULL,
-  `type` varchar(5) NOT NULL,
+  `form` varchar(5) NOT NULL,
   PRIMARY KEY (`advertID`),
   FOREIGN KEY (campaignID) REFERENCES Campaign(campaignID),
-  CONSTRAINT type CHECK (type IN ('web', 'mag', 'tv', 'radio'))
+  CONSTRAINT form CHECK (form IN ('web', 'mag', 'tv', 'radio'))
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
@@ -76,15 +76,15 @@ CREATE TABLE `Magazine` (
 
 CREATE TABLE `TV&Radio` (
   `advertID` int(6) NOT NULL AUTO_INCREMENT,
-  `slot` time() NOT NULL,
-  `length` int(5) NOT NULL,
+  `slot` time NOT NULL,
+  `runTime` int(5) NOT NULL,
   `companyID` int(6) NOT NULL,
   `broadcastingNo` int(3) NOT NULL,
-  `type` varchar(5) NOT NULL,
+  `form` varchar(5) NOT NULL,
   PRIMARY KEY(`advertID`),
   FOREIGN KEY (advertID) REFERENCES Advert(advertID),
   FOREIGN KEY(companyID) REFERENCES Company(companyID),
-  CONSTRAINT type CHECK (type IN('tv','radio'))
+  CONSTRAINT form CHECK (form IN('tv','radio'))
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
@@ -160,16 +160,16 @@ INSERT INTO `Campaign` (`campaignID`, `clientID`, `startDate`, `endDate`) VALUES
 INSERT INTO `Campaign` (`campaignID`, `clientID`, `startDate`, `endDate`) VALUES (2, 2, '2018.12.24', '2018.06.24');
 INSERT INTO `Campaign` (`campaignID`, `clientID`, `startDate`, `endDate`) VALUES (3, 3, '2018.04.29', '2018.10.29');
 
-INSERT INTO `Advert` (`advertID`, `campaignID`, `type`) VALUES (1, 1, 'mag');
-INSERT INTO `Advert` (`advertID`, `campaignID`, `type`) VALUES (2, 2, 'tv');
-INSERT INTO `Advert` (`advertID`, `campaignID`, `type`) VALUES (3, 3, 'web');
-INSERT INTO `Advert` (`advertID`, `campaignID`, `type`) VALUES (4, 1, 'web');
-INSERT INTO `Advert` (`advertID`, `campaignID`, `type`) VALUES (5, 2, 'radio');
-INSERT INTO `Advert` (`advertID`, `campaignID`, `type`) VALUES (6, 3, 'mag');
-INSERT INTO `Advert` (`advertID`, `campaignID`, `type`) VALUES (7, 1, 'tv');
-INSERT INTO `Advert` (`advertID`, `campaignID`, `type`) VALUES (8, 2, 'mag');
-INSERT INTO `Advert` (`advertID`, `campaignID`, `type`) VALUES (9, 3, 'web');
-INSERT INTO `Advert` (`advertID`, `campaignID`, `type`) VALUES (10, 1, 'radio');
+INSERT INTO `Advert` (`advertID`, `campaignID`, `form`) VALUES (1, 1, 'mag');
+INSERT INTO `Advert` (`advertID`, `campaignID`, `form`) VALUES (2, 2, 'tv');
+INSERT INTO `Advert` (`advertID`, `campaignID`, `form`) VALUES (3, 3, 'web');
+INSERT INTO `Advert` (`advertID`, `campaignID`, `form`) VALUES (4, 1, 'web');
+INSERT INTO `Advert` (`advertID`, `campaignID`, `form`) VALUES (5, 2, 'radio');
+INSERT INTO `Advert` (`advertID`, `campaignID`, `form`) VALUES (6, 3, 'mag');
+INSERT INTO `Advert` (`advertID`, `campaignID`, `form`) VALUES (7, 1, 'tv');
+INSERT INTO `Advert` (`advertID`, `campaignID`, `form`) VALUES (8, 2, 'mag');
+INSERT INTO `Advert` (`advertID`, `campaignID`, `form`) VALUES (9, 3, 'web');
+INSERT INTO `Advert` (`advertID`, `campaignID`, `form`) VALUES (10, 1, 'radio');
 
 INSERT INTO Invoice (`invoiceID`, `campaignID`, `clientID`, `cost`) VALUES ( 1, 1, 1, 61);
 INSERT INTO Invoice (`invoiceID`, `campaignID`, `clientID`, `cost`) VALUES ( 2, 2, 2, 81);
@@ -190,15 +190,16 @@ INSERT INTO Magazine (`advertID`, `companyID`, `size`, `position`, `number`) VAL
                         /* ----------------------------------------*/
                          
                          
-INSERT INTO TV&Radio (`advertID`, `slot`, `length`, `companyID`, `broadcastingNo`, `type`) VALUES (2, '18:00', '120', '2', 25,'radio');
-INSERT INTO TV&Radio (`advertID`, `slot`, `length`, `companyID`, `broadcastingNo`, `type`) VALUES (5, '10:00:00', '120', '3', 15,'tv');
-INSERT INTO TV&Radio (`advertID`, `slot`, `length`, `companyID`, `broadcastingNo`, `type`) VALUES (7, '13:00:00', '120', '2', 35,'radio');
-INSERT INTO TV&Radio (`advertID`, `slot`, `length`, `companyID`, `broadcastingNo`, `type`) VALUES (10, '07:00:00', '120', '3', 50,'tv');
+INSERT INTO TV&Radio (`advertID`, `slot`, `runTime`, `companyID`, `broadcastingNo`, `form`) VALUES (2, 18:00:00, 120, 2, 25,'radio');
+INSERT INTO TV&Radio (`advertID`, `slot`, `runTime`, `companyID`, `broadcastingNo`, `form`) VALUES (2, 10:00:00, 120, 2, 15,'tv');
+INSERT INTO TV&Radio (`advertID`, `slot`, `runTime`, `companyID`, `broadcastingNo`, `form`) VALUES (1, 13:00:00, 120, 1, 35,'radio');
+INSERT INTO TV&Radio (`advertID`, `slot`, `runTime`, `companyID`, `broadcastingNo`, `form`) VALUES (1, 07:00:00, 120, 1, 50,'tv');
 
                          
-INSERT INTO Web (`advertID`, `company`, `demographic`, `region`, `views`) VALUES (3, 'company', 'demo', 'region', 'views');
-INSERT INTO Web (`advertID`, `company`, `demographic`, `region`, `views`) VALUES (4, 'company', 'demo', 'region', 'views');
-INSERT INTO Web (`advertID`, `company`, `demographic`, `region`, `views`) VALUES (9, 'company', 'demo', 'region', 'views');
+INSERT INTO Web (`advertID`, `companyID`, `demographic`, `region`, `views`) VALUES (3, 5, '16-30', 'region', 'views');
+INSERT INTO Web (`advertID`, `companyID`, `demographic`, `region`, `views`) VALUES (4, 8, '35-65', 'region', 'views');
+INSERT INTO Web (`advertID`, `companyID`, `demographic`, `region`, `views`) VALUES (9, 4, '16+', 'region', 'views');
+
 
 INSERT INTO WorkDone (`campaignID`, `employeeID`, `hoursWorked`) VALUES (1, 1, 12);
 INSERT INTO WorkDone (`campaignID`, `employeeID`, `hoursWorked`) VALUES (1, 1, 12);
