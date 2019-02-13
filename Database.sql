@@ -191,9 +191,9 @@ INSERT INTO Magazine (`advertID`, `companyID`, `size`, `position`, `number`) VAL
                          
                          
 INSERT INTO TVRadio (`advertID`, `slot`, `runTime`, `companyID`, `broadcastingNo`, `form`) VALUES (2, 18:00:00, 120, 2, 25,'radio');
-INSERT INTO TVRadio (`advertID`, `slot`, `runTime`, `companyID`, `broadcastingNo`, `form`) VALUES (2, 10:00:00, 120, 2, 15,'tv');
-INSERT INTO TVRadio (`advertID`, `slot`, `runTime`, `companyID`, `broadcastingNo`, `form`) VALUES (1, 13:00:00, 120, 1, 35,'radio');
-INSERT INTO TVRadio (`advertID`, `slot`, `runTime`, `companyID`, `broadcastingNo`, `form`) VALUES (1, 07:00:00, 120, 1, 50,'tv');
+INSERT INTO TVRadio (`advertID`, `slot`, `runTime`, `companyID`, `broadcastingNo`, `form`) VALUES (5, 10:00:00, 120, 2, 15,'tv');
+INSERT INTO TVRadio (`advertID`, `slot`, `runTime`, `companyID`, `broadcastingNo`, `form`) VALUES (7, 13:00:00, 120, 1, 35,'radio');
+INSERT INTO TVRadio (`advertID`, `slot`, `runTime`, `companyID`, `broadcastingNo`, `form`) VALUES (10, 07:00:00, 120, 1, 50,'tv');
 
                          
 INSERT INTO Web (`advertID`, `companyID`, `demographic`, `region`, `views`) VALUES (3, 5, '16-30', 'region', 'views');
