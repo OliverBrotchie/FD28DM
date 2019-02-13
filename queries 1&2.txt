@@ -1,0 +1,18 @@
+SELECT employeeID
+FROM WorkDone
+INNER JOIN advertID ON WorkDone.advertID=TV&Radio.advertID;
+
+SELECT COUNT(clientID)
+FROM Campaign 
+INNER JOIN campaignID ON Magazine.campaignID=Advert.campaignID
+WHERE clientID = "X";
+
+SELECT COUNT(clientID)
+FROM Campaign 
+INNER JOIN campaignID ON Web.campaignID=Advert.campaignID
+WHERE clientID = "X";
+
+SELECT COUNT(clientID)
+FROM Campaign 
+INNER JOIN campaignID ON TV&Radio.campaignID=Advert.campaignID
+WHERE clientID = "X";
