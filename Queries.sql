@@ -40,21 +40,21 @@ INNER JOIN Employee ON Employee.employeeID = ID
 INNER JOIN PersonalInfo ON PersonalInfo.personID = Employee.personID;
 
 
-/*Corbins Query 1, Calculates average cost of all campaigns for clients who have clientID beginning with 1.*/
+/*Corbin Beaumont, Query 1, Calculates average cost of all campaigns for clients who have clientID beginning with 1.*/
 SELECT avg(cost) 
 FROM invoice   
 GROUP BY clientID 
 HAVING clientID LIKE '1%';
 
-/*corbin Query 2, calculates the earnings per hour worked and groups it by campaign ID*/
+/*Corbin Beaumont, Query 2, calculates the earnings per hour worked and groups it by campaign ID*/
 SELECT Invoice.campaignID, sum(Invoice.cost) DIV sum(WorkDone.hoursworked) AS earnings_per_hour_worked
 FROM Invoice
 	INNER JOIN WorkDone 
 		ON Invoice.campaignID = WorkDone.campaignID
 GROUP BY Invoice.campaignID;
 
-. 
-/* Philip's Query 1, Employees that aren't working more than 10 hours on a project*/
+
+/* Philip Lawson, Query 1, Employees that aren't working more than 10 hours on a project*/
 SELECT DISTINCT Employee.employeeID, PersonalInfo.firstName, PersonalInfo.secondName
 FROM PersonalInfo
 	INNER JOIN Employee
