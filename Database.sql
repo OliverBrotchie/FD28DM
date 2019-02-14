@@ -65,7 +65,7 @@ CREATE TABLE `Magazine` (
   `companyID` int(6) NOT NULL,
   `textSize` varchar(16) NOT NULL,
   `position` varchar(16) NOT NULL,
-  `number` int(4) NOT NULL,
+  `issues` int(4) NOT NULL,
   PRIMARY KEY (`advertID`),
   FOREIGN KEY (`advertID`) REFERENCES Advert(`advertID`),
   FOREIGN KEY(`companyID`) REFERENCES Company(`companyID`),
@@ -171,19 +171,27 @@ INSERT INTO Client (`clientID`, `personID`, `companyID`) VALUES
 INSERT INTO Campaign (`campaignID`, `clientID`, `startDate`, `endDate`) VALUES 
 (1, 1, '2018.08.15', '2018.02.15'),
 (2, 2, '2018.12.24', '2018.06.24'),
-(3, 3, '2018.04.29', '2018.10.29');
+(3, 3, '2018.04.29', '2018.10.29'),
+(4, 4, '2018.03.07', '2018.09.07'),
+(5, 5, '2018.01.17', '2018.07.17'),
+(6, 6, '2018.01.30', '2019.07.30'),
+(7, 7, '2018.07.22', '2019.01.22'),
+(8, 8, '2018.10.14', '2019.04.14'),
+(9, 9, '2018.05.03', '2018.11.03'),
+(10, 10, '2018.08.11', '2019.02.11');
 
 INSERT INTO Advert (`advertID`, `campaignID`, `form`) VALUES 
-(1, 1, 'mag'),
-(2, 2, 'tv'),
-(3, 3, 'web'),
-(4, 1, 'web'),
-(5, 2, 'radio'),
-(6, 3, 'mag'),
-(7, 1, 'tv'),
-(8, 2, 'mag'),
-(9, 3, 'web'),
-(10, 1, 'radio');
+(1, 1, 'mag'), (2, 1, 'web'), (3, 1, 'tv'), (4, 1, 'radio'),
+(5, 2, 'tv'), (6, 2, 'radio'), (7, 2, 'mag'),
+(8, 3, 'web'), (9, 3, 'mag'), (10, 3, 'tv'),
+(11, 4, 'web'), (12, 4, 'radio'),
+(13, 5, 'tv'),
+(14, 6, 'web'), (15, 6, 'mag'), (16, 6, 'radio'), (17, 6, 'tv'),
+(18, 7, 'radio'), (19, 7, 'mag'), 
+(20, 8, 'tv'), (21, 8, 'radio'),
+(22, 9, 'tv'),
+(23, 10, 'web'), (24, 10, 'mag'), (25, 10, 'radio');
+
 
 INSERT INTO Invoice (`invoiceID`, `campaignID`, `clientID`, `cost`) VALUES 
 ( 1, 1, 1, 61),
@@ -197,17 +205,32 @@ INSERT INTO Invoice (`invoiceID`, `campaignID`, `clientID`, `cost`) VALUES
 ( 9, 9, 9, NULL),
 ( 10, 10, 10, NULL);
                              
-INSERT INTO Magazine (`advertID`, `companyID`, `textSize`, `position`, `number`) VALUES 
-(1, 1, 'large', 'top-right', 6),
-(6, 9, 'small', 'middle-center', 3),
-(8, 10, 'medium', 'bottom-left', 1);
+INSERT INTO Magazine (`advertID`, `companyID`, `textSize`, `position`, `issues`) VALUES 
+(1, 1, 'large', 'top-right', 16),
+(7, 9, 'small', 'middle-center',23),
+(9, 10, 'medium', 'bottom-left', 10),
+(15, 9, 'medium', 'middle-left', 14),
+(18, 9, 'large', 'custom', 19),
+(23, 9, 'small', 'top-left', 7),
                     
                          
 INSERT INTO TVRadio (`advertID`, `slot`, `runTime`, `companyID`, `broadcastingNo`, `form`) VALUES 
-(10, 18.00, 120, 2, 25,'radio'),
-(2, 10.00, 120, 2, 15,'tv'),
-(5, 13.00, 120, 1, 35,'radio'),
-(7, 07.00, 120, 1, 50,'tv');
+(4, 10.00, 120, 2, 15,'radio'),
+(6, 13.00, 120, 1, 35,'radio'),
+(12, 07.00, 120, 1, 50,'radio'),
+(16, 07.00, 120, 1, 50,'radio'),
+(18, 07.00, 120, 1, 50,'radio'),
+(21, 07.00, 120, 1, 50,'radio'),
+(25, 07.00, 120, 1, 50,'radio'),
+(3, 07.00, 120, 1, 50,'tv'),
+(5, 07.00, 120, 1, 50,'tv'),
+(10, 07.00, 120, 1, 50,'tv'),
+(13, 07.00, 120, 1, 50,'tv'),
+(17, 07.00, 120, 1, 50,'tv'),
+(20, 07.00, 120, 1, 50,'tv'),
+(22, 07.00, 120, 1, 50,'tv'),
+
+
 
                          
 INSERT INTO Web (`advertID`, `companyID`, `demographic`, `region`, `views`) VALUES 
