@@ -79,7 +79,7 @@ WHERE Employee.employeeID NOT IN
 ORDER BY Employee.employeeID
 ;
 
-/* Philip's second query : view that displays a list of employees with first and last names*/
+/* Philip Lawson, Query 2, View that displays a list of employee ID's and their first and last names*/
 CREATE VIEW vEmployeeID AS
 SELECT Employee.EmployeeID, PersonalInfo.firstName, PersonalInfo.secondName
 FROM PersonalInfo
@@ -89,4 +89,3 @@ FROM PersonalInfo
 SELECT vEmployeeID.EmployeeID, vEmployeeID.firstName, vEmployeeID.secondName
 FROM vEmployeeID
 WHERE vEmployeeID.secondName = 'et';
-
