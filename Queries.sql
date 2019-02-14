@@ -86,5 +86,7 @@ FROM PersonalInfo
 	INNER JOIN Employee
 		ON Employee.personID = PersonalInfo.personID
 ;
-SELECT * FROM vEmployeeID;
+SELECT vEmployeeID.EmployeeID, vEmployeeID.firstName, vEmployeeID.secondName
+FROM vEmployeeID
+WHERE vEmployeeID.secondName = 'et';
 
