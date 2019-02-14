@@ -26,8 +26,8 @@ CREATE TABLE `Client` (
   `personID` int(6) NOT NULL UNIQUE,
   `companyID` int(6) NOT NULL,
   PRIMARY KEY(`clientID`),
-  FOREIGN KEY(personID) REFERENCES PersonalInfo(personID),
-  FOREIGN KEY(companyID) REFERENCES Company(companyID)
+  FOREIGN KEY(`personID`) REFERENCES PersonalInfo(`personID`),
+  FOREIGN KEY(`companyID`) REFERENCES Company(`companyID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
@@ -37,7 +37,7 @@ CREATE TABLE `Campaign` (
   `startDate` DATE NOT NULL,
   `endDate` DATE NOT NULL,
   PRIMARY KEY(`campaignID`),
-  FOREIGN KEY(clientID) REFERENCES Client(clientID)
+  FOREIGN KEY(`clientID`) REFERENCES Client(`clientID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
@@ -46,7 +46,7 @@ CREATE TABLE `Advert` (
   `campaignID` int(6) NOT NULL,
   `form` varchar(5) NOT NULL,
   PRIMARY KEY (`advertID`),
-  FOREIGN KEY (campaignID) REFERENCES Campaign(campaignID),
+  FOREIGN KEY (`campaignID`) REFERENCES Campaign(`campaignID`),
   CONSTRAINT form CHECK (form IN ('web', 'mag', 'tv', 'radio'))
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -67,8 +67,8 @@ CREATE TABLE `Magazine` (
   `position` varchar(16) NOT NULL,
   `number` int(4) NOT NULL,
   PRIMARY KEY (`advertID`),
-  FOREIGN KEY (advertID) REFERENCES Advert(advertID),
-  FOREIGN KEY(companyID) REFERENCES Company(companyID),
+  FOREIGN KEY (`advertID`) REFERENCES Advert(`advertID`),
+  FOREIGN KEY(`companyID`) REFERENCES Company(`companyID`),
   CONSTRAINT textSize CHECK (textSize IN('small','medium','large')),
   CONSTRAINT position CHECK (position IN ('top-right', 'top-center', 'top-left','middle-right', 'middle-center', 'middle-left','bottom-right', 'bottom-center', 'bottom-left', 'custom'))                                      
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -82,8 +82,8 @@ CREATE TABLE `TVRadio` (
   `broadcastingNo` int(3) NOT NULL,
   `form` varchar(5) NOT NULL,
   PRIMARY KEY(`advertID`),
-  FOREIGN KEY (advertID) REFERENCES Advert(advertID),
-  FOREIGN KEY(companyID) REFERENCES Company(companyID),
+  FOREIGN KEY (`advertID`) REFERENCES Advert(`advertID`),
+  FOREIGN KEY(`companyID`) REFERENCES Company(`companyID`),
   CONSTRAINT form CHECK (form IN('tv','radio'))
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -95,8 +95,8 @@ CREATE TABLE `Web` (
   `region` varchar(64) NOT NULL,
   `views` int(8) NOT NULL,
   PRIMARY KEY(`advertID`),
-  FOREIGN KEY (advertID) REFERENCES Advert(advertID),
-  FOREIGN KEY(companyID) REFERENCES Company(companyID),
+  FOREIGN KEY (`advertID`) REFERENCES Advert(`advertID`),
+  FOREIGN KEY(`companyID`) REFERENCES Company(`companyID`),
   CONSTRAINT demographic CHECK (demographic IN( '%-%', '<%', '%<' ))
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -106,7 +106,7 @@ CREATE TABLE `WorkDone` (
   `employeeID` int(6) NOT NULL,
   `hoursWorked` int(4) NOT NULL,
   PRIMARY KEY(`campaignID`, `employeeID`),
-  FOREIGN KEY (campaignID) REFERENCES Campaign(campaignID)
+  FOREIGN KEY (`campaignID`) REFERENCES Campaign(`campaignID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
@@ -157,9 +157,16 @@ INSERT INTO Company (`companyID`, `name`) VALUES
 (10, 'Programmer Weekly');
                              
 INSERT INTO Client (`clientID`, `personID`, `companyID`) VALUES
-(1, 11, '6'),
-(2, 12, '7'),
-(3, 13, '8');
+(1, 11, '1'),
+(2, 12, '2'),
+(3, 13, '3'),
+(4, 14, '4'),
+(5, 15, '5'),
+(6, 16, '6'),
+(7, 17, '7'),
+(8, 18, '8'),
+(9, 19, '9'),
+(10, 20, '10');
                   
 INSERT INTO Campaign (`campaignID`, `clientID`, `startDate`, `endDate`) VALUES 
 (1, 1, '2018.08.15', '2018.02.15'),
