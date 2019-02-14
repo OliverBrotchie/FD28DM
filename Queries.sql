@@ -87,3 +87,13 @@ FROM PersonalInfo
 SELECT vEmployeeID.EmployeeID, vEmployeeID.firstName, vEmployeeID.secondName
 FROM vEmployeeID
 WHERE vEmployeeID.secondName = 'et';
+
+
+
+/* Oliver Brotchie Query 1, All middle managers */
+SELECT *
+FROM Employee
+WHERE Employee.employeeID IN (
+	SELECT Employee.ManagerID
+	FROM Employee 
+) AND Employee.managerID IS NOT NULL;
