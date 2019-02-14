@@ -45,6 +45,13 @@ INNER JOIN Employee ON Employee.employeeID = ID
 INNER JOIN PersonalInfo ON PersonalInfo.personID = Employee.personID;
 
 
+**corbins stuff**
+SELECT avg(cost) 
+FROM invoice   
+GROUP BY clientID 
+HAVING clientID LIKE '1%';
+
+
 
 
 
