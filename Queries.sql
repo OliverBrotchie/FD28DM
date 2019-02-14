@@ -17,7 +17,6 @@ WHERE Employee.employeeID NOT IN
 );
 
 
-
 /* Query 2 */
 SELECT Client.clientID, PersonalInfo.firstName, PersonalInfo.secondName, COUNT(Advert.form) AS NumberOfRadioAdverts
 FROM PersonalInfo
@@ -28,10 +27,6 @@ FROM PersonalInfo
 	INNER JOIN Advert
 		ON Advert.campaignID = Campaign.campaignID
 WHERE Advert.form = "radio";
-
-
-
-
 
 
 /* Query 3 */
@@ -50,23 +45,4 @@ SELECT avg(cost)
 FROM invoice   
 GROUP BY clientID 
 HAVING clientID LIKE '1%';
-
-
-
-
-/* Query 4 : Employees that aren't working more than 10 hours on a project */
-/* Philip's Query */
-SELECT DISTINCT Employee.employeeID, PersonalInfo.firstName, PersonalInfo.secondName
-FROM PersonalInfo
-	INNER JOIN Employee
-		ON Employee.personID = PersonalInfo.personID
-WHERE Employee.employeeID NOT IN
-(
-	SELECT DISTINCT Employee.employeeID
-	FROM Employee
-		INNER JOIN WorkDone
-			on WorkDone.employeeID = Employee.employeeID
-		WHERE WorkDone.hoursWorked > 10
-);
-
 
