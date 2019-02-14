@@ -66,4 +66,26 @@ WHERE Employee.employeeID NOT IN
 		INNER JOIN WorkDone
 			on WorkDone.employeeID = Employee.employeeID
 		WHERE WorkDone.hoursWorked > 10
-);
+)
+ORDER BY Employee.employeeID
+;
+
+/* Philip's second query : Employees who have experience working on tv adverts*/
+SELECT DISTINCT Employee.employeeID, PersonalInfo.firstName, PersonalInfo.secondName
+FROM PersonalInfo
+	INNER JOIN Employee
+		ON Employee.personID = PersonalInfo.personID
+Where Employee.employeeID IN
+(
+	SELECT DISTINCT Employee.employeeID
+	FROM Employee
+		INNER JOIN WorkDone
+			on WorkDone.employeeID = Employee.employeeID
+		INNER JOIN Campaign
+			on Campaign.campaignID = WorkDone.campaignID
+		INNER JOIN Advert
+			on Advert.campaignID = Campaign.campaignID
+		WHERE Advert.form = 'tv'
+)
+ORDER BY Employee.employeeID
+;
