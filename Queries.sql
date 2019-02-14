@@ -46,6 +46,13 @@ FROM invoice
 GROUP BY clientID 
 HAVING clientID LIKE '1%';
 
+/*corbin Query 2, calculates the earnings per hour worked and groups it by campaign ID*/
+SELECT Invoice.campaignID, sum(Invoice.cost) DIV sum(WorkDone.hoursworked) AS earnings_per_hour_worked
+FROM Invoice
+	INNER JOIN WorkDone 
+		ON Invoice.campaignID = WorkDone.campaignID
+GROUP BY Invoice.campaignID;
+
 . 
 /* Philip's Query 1, Employees that aren't working more than 10 hours on a project*/
 SELECT DISTINCT Employee.employeeID, PersonalInfo.firstName, PersonalInfo.secondName
