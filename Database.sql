@@ -15,10 +15,12 @@ CREATE TABLE   `Company` (
  
 CREATE TABLE  `Employee` (
   `employeeID` int(6) NOT NULL AUTO_INCREMENT,
-  `personID` int(6) NOT NULL,
-  `workEmail` varchar(30) NOT NULL,
+  `personID` int(6) NOT NULL UNIQUE,
+  `workEmail` varchar(30) NOT NULL UNIQUE,
+  `managerID` int(6),
   PRIMARY KEY(`employeeID`),
-  FOREIGN KEY(`personID`) REFERENCES PersonalInfo(`personID`)
+  FOREIGN KEY(`personID`) REFERENCES PersonalInfo(`personID`),
+  FOREIGN KEY(`managerID`) REFERENCES Employee(`employeeID`)
  ) ENGINE=InnoDB DEFAULT CHARSET=latin1; 
 
 CREATE TABLE `Client` (
@@ -130,17 +132,18 @@ INSERT INTO PersonalInfo (`personID`, `firstName`, `secondName`, `emailAddress`,
 (19, 'Emmalee', 'odit', 'santiago.bogisich@example.com', 38286),
 (20, 'June', 'qui', 'qwilkinson@example.net', 899687);
 
-INSERT INTO Employee (`employeeID`, `personID`, `workEmail`) VALUES 
-(1, 1, 'joccaeti@company.com'),
-(2, 2, 'snisi@company.com'),
-(3, 3, 'zdolorum@company.com'),
-(4, 4, 'maut@company.com'),
-(5, 5, 'nveritatis@company.com'),
-(6, 6, 'msaepe@company.com'),
-(7, 7, 'kut@company.com'),
-(8, 8, 'rquibusdam@company.com'),
-(9, 9, 'jdebitis@company.com'),
-(10, 10, 'jet@company.com');
+INSERT INTO Employee (`employeeID`, `personID`, `workEmail`, `managerID`) VALUES 
+(10, 10, 'jet@company.com',NULL),
+(8, 8, 'rquibusdam@company.com',10),
+(9, 9, 'jdebitis@company.com',10),
+(1, 1, 'joccaeti@company.com',8),
+(2, 2, 'snisi@company.com',8),
+(3, 3, 'zdolorum@company.com',8),
+(4, 4, 'maut@company.com',8),
+(5, 5, 'nveritatis@company.com',9),
+(6, 6, 'msaepe@company.com',9),
+(7, 7, 'kut@company.com',9);
+
 
 INSERT INTO Company (`companyID`, `name`) VALUES 
 (1, 'Vogue'),
