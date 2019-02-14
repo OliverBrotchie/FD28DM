@@ -56,7 +56,7 @@ GROUP BY clientID
 HAVING clientID LIKE '1%';
 
 /*Corbin Beaumont, Query 2, calculates the earnings per hour worked and groups it by campaign ID*/
-SELECT Invoice.campaignID, sum(Invoice.cost) DIV sum(WorkDone.hoursworked) AS earnings_per_hour_worked
+SELECT Invoice.campaignID, sum(Invoice.cost) DIV sum(WorkDone.hoursworked) AS averageCostPerHour
 FROM Invoice
 	INNER JOIN WorkDone 
 		ON Invoice.campaignID = WorkDone.campaignID
@@ -76,16 +76,14 @@ WHERE Employee.employeeID NOT IN
 			on WorkDone.employeeID = Employee.employeeID
 		WHERE WorkDone.hoursWorked > 10
 )
-ORDER BY Employee.employeeID
-;
+ORDER BY Employee.employeeID;
 
 /* Philip Lawson, Query 2, View that displays a list of employee ID's and their first and last names*/
 CREATE VIEW vEmployeeID AS
 SELECT Employee.EmployeeID, PersonalInfo.firstName, PersonalInfo.secondName
 FROM PersonalInfo
 	INNER JOIN Employee
-		ON Employee.personID = PersonalInfo.personID
-;
+		ON Employee.personID = PersonalInfo.personID;
 SELECT vEmployeeID.EmployeeID, vEmployeeID.firstName, vEmployeeID.secondName
 FROM vEmployeeID
 WHERE vEmployeeID.secondName = 'et';
