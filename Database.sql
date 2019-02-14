@@ -95,7 +95,7 @@ CREATE TABLE `Web` (
   PRIMARY KEY(`advertID`),
   FOREIGN KEY (`advertID`) REFERENCES Advert(`advertID`),
   FOREIGN KEY(`companyID`) REFERENCES Company(`companyID`),
-  CONSTRAINT demographic CHECK (demographic IN( '%-%', '<%', '%<' ))
+  CONSTRAINT demographic CHECK (demographic IN( '%-%', '<%', '>%' ))
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
@@ -207,42 +207,47 @@ INSERT INTO Magazine (`advertID`, `companyID`, `textSize`, `position`, `issues`)
 (1, 1, 'large', 'top-right', 16),
 (7, 9, 'small', 'middle-center',23),
 (9, 10, 'medium', 'bottom-left', 10),
-(15, 9, 'medium', 'middle-left', 14),
-(18, 9, 'large', 'custom', 19),
+(15, 1, 'medium', 'middle-left', 14),
+(18, 1, 'large', 'custom', 19),
 (23, 9, 'small', 'top-left', 7);
                     
                          
 INSERT INTO TVRadio (`advertID`, `slot`, `runTime`, `companyID`, `broadcastingNo`) VALUES 
+/*Radio Adverts*/
 (4, 10.00, 120, 2, 15),
-(6, 13.00, 120, 1, 35),
-(12, 07.00, 120, 1, 50),
-(16, 07.00, 120, 1, 50),
-(18, 07.00, 120, 1, 50),
-(21, 07.00, 120, 1, 50),
-(25, 07.00, 120, 1, 50),
-(3, 07.00, 120, 1, 50),
-(5, 07.00, 120, 1, 50),
-(10, 07.00, 120, 1, 50),
-(13, 07.00, 120, 1, 50),
-(17, 07.00, 120, 1, 50),
-(20, 07.00, 120, 1, 50),
-(22, 07.00, 120, 1, 50);
+(6, 13.00, 120, 2, 35),
+(12, 07.00, 120, 2, 23),
+(16, 17.00, 120, 2, 12),
+(18, 09.00, 120, 2, 9),
+(21, 21.00, 120, 2, 25),
+(25, 22.00, 120, 2, 36),
+
+/*TV Adverts*/
+(3, 07.00, 120, 3, 12),
+(5, 10.00, 120, 3, 31),
+(10, 12.00, 120, 3, 9),
+(13, 23.00, 120, 3, 10),
+(17, 06.00, 120, 3, 17),
+(20, 17.00, 120, 3, 40),
+(22, 20.00, 120, 3, 27);
 
                          
 INSERT INTO Web (`advertID`, `companyID`, `demographic`, `region`, `views`) VALUES 
-(3, 5, '16-30', 'region', 100),
-(4, 8, '35-65', 'region', 100),
-(9, 4, '15<', 'region', 100);
+(2, 5, '16-30', 'region', 100),
+(8, 8, '35-65', 'region', 100),
+(11, 4, '>15', 'region', 100),
+(14, 7, '15<', 'region', 100),
+(23, 6, '20-65', 'region', 100);
 
 
 INSERT INTO WorkDone (`campaignID`, `employeeID`, `hoursWorked`) VALUES 
-(1, 1, 12),
-(1, 5, 21),
-(1, 7, 4),
-(1, 10, 7),
-(2, 9, 28),
-(2, 3, 30),
-(3, 2, 7),
-(3, 8, 18),
-(3, 4, 20),
-(3, 6, 16);
+(1, 1, 12), (1, 5, 21), (1, 7, 4), (1, 10, 7),
+(2, 9, 28), (2, 3, 30),
+(3, 2, 7), (3, 8, 18), (3, 4, 20), (3, 6, 16),
+(4, 5, 50),
+(5, 8, 30), (5, 3, 24),
+(6, 1, 23), (6, 4, 18), (6, 9, 30), (6, 2, 10), (6, 10, 10),
+(7, 6, 15), (7, 5, 13),
+(8, 3, 20), (8, 7, 15), (8, 10, 5),
+(9, 1, 20), (9, 2, 20),
+(10, 7, 28), (10, 9, 14), (10, 4, 12), (10, 5, 23);
