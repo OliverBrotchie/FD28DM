@@ -40,9 +40,23 @@ INNER JOIN Employee ON Employee.employeeID = ID
 INNER JOIN PersonalInfo ON PersonalInfo.personID = Employee.personID;
 
 
-/*corbins stuff*/
+/*Corbins Query 1, Calculates average cost of all campaigns for clients who have clientID beginning with 1.*/
 SELECT avg(cost) 
 FROM invoice   
 GROUP BY clientID 
 HAVING clientID LIKE '1%';
 
+. 
+/* Philip's Query 1, Employees that aren't working more than 10 hours on a project*/
+SELECT DISTINCT Employee.employeeID, PersonalInfo.firstName, PersonalInfo.secondName
+FROM PersonalInfo
+	INNER JOIN Employee
+		ON Employee.personID = PersonalInfo.personID
+WHERE Employee.employeeID NOT IN
+(
+	SELECT DISTINCT Employee.employeeID
+	FROM Employee
+		INNER JOIN WorkDone
+			on WorkDone.employeeID = Employee.employeeID
+		WHERE WorkDone.hoursWorked > 10
+);
