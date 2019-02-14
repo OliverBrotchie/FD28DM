@@ -79,12 +79,10 @@ CREATE TABLE `TVRadio` (
   `slot` time NOT NULL,
   `runTime` int(5) NOT NULL,
   `companyID` int(6) NOT NULL,
-  `broadcastingNo` int(3) NOT NULL,
-  `form` varchar(5) NOT NULL,
+  `broadcastingNo` int(4) NOT NULL,
   PRIMARY KEY(`advertID`),
   FOREIGN KEY (`advertID`) REFERENCES Advert(`advertID`),
-  FOREIGN KEY(`companyID`) REFERENCES Company(`companyID`),
-  CONSTRAINT form CHECK (form IN('tv','radio'))
+  FOREIGN KEY(`companyID`) REFERENCES Company(`companyID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
@@ -145,7 +143,7 @@ INSERT INTO Employee (`employeeID`, `personID`, `workEmail`) VALUES
 (10, 10, 'jet@company.com');
 
 INSERT INTO Company (`companyID`, `name`) VALUES 
-(1, 'Vouge'),
+(1, 'Vogue'),
 (2, 'Radio 4'),
 (3, 'E4'),
 (4, 'Google'),
@@ -211,26 +209,24 @@ INSERT INTO Magazine (`advertID`, `companyID`, `textSize`, `position`, `issues`)
 (9, 10, 'medium', 'bottom-left', 10),
 (15, 9, 'medium', 'middle-left', 14),
 (18, 9, 'large', 'custom', 19),
-(23, 9, 'small', 'top-left', 7),
+(23, 9, 'small', 'top-left', 7);
                     
                          
-INSERT INTO TVRadio (`advertID`, `slot`, `runTime`, `companyID`, `broadcastingNo`, `form`) VALUES 
-(4, 10.00, 120, 2, 15,'radio'),
-(6, 13.00, 120, 1, 35,'radio'),
-(12, 07.00, 120, 1, 50,'radio'),
-(16, 07.00, 120, 1, 50,'radio'),
-(18, 07.00, 120, 1, 50,'radio'),
-(21, 07.00, 120, 1, 50,'radio'),
-(25, 07.00, 120, 1, 50,'radio'),
-(3, 07.00, 120, 1, 50,'tv'),
-(5, 07.00, 120, 1, 50,'tv'),
-(10, 07.00, 120, 1, 50,'tv'),
-(13, 07.00, 120, 1, 50,'tv'),
-(17, 07.00, 120, 1, 50,'tv'),
-(20, 07.00, 120, 1, 50,'tv'),
-(22, 07.00, 120, 1, 50,'tv'),
-
-
+INSERT INTO TVRadio (`advertID`, `slot`, `runTime`, `companyID`, `broadcastingNo`) VALUES 
+(4, 10.00, 120, 2, 15),
+(6, 13.00, 120, 1, 35),
+(12, 07.00, 120, 1, 50),
+(16, 07.00, 120, 1, 50),
+(18, 07.00, 120, 1, 50),
+(21, 07.00, 120, 1, 50),
+(25, 07.00, 120, 1, 50),
+(3, 07.00, 120, 1, 50),
+(5, 07.00, 120, 1, 50),
+(10, 07.00, 120, 1, 50),
+(13, 07.00, 120, 1, 50),
+(17, 07.00, 120, 1, 50),
+(20, 07.00, 120, 1, 50),
+(22, 07.00, 120, 1, 50);
 
                          
 INSERT INTO Web (`advertID`, `companyID`, `demographic`, `region`, `views`) VALUES 
