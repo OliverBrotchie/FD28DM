@@ -70,5 +70,12 @@ WHERE Employee.employeeID NOT IN
 ORDER BY Employee.employeeID
 ;
 
-/* Philip's second query :*/
+/* Philip's second query : view that displays a list of employees with first and last names*/
+CREATE VIEW vEmployeeID AS
+SELECT Employee.EmployeeID, PersonalInfo.firstName, PersonalInfo.secondName
+FROM PersonalInfo
+	INNER JOIN Employee
+		ON Employee.personID = PersonalInfo.personID
+;
+SELECT * FROM vEmployeeID;
 
