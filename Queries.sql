@@ -17,7 +17,7 @@ WHERE Employee.employeeID NOT IN
 );
 
 
-/* Query 2 Need to ad all types*/
+/* Query 2 Need to add all types*/
 SELECT Client.clientID, PersonalInfo.firstName, PersonalInfo.secondName, COUNT(Advert.form) AS NumberOfRadioAdverts
 FROM PersonalInfo
 	INNER JOIN Client
