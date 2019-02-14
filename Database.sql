@@ -110,102 +110,113 @@ CREATE TABLE `WorkDone` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
-INSERT INTO PersonalInfo (`personID`, `firstName`, `secondName`, `emailAddress`, `phoneNumber`) VALUES (1, 'Jarrett', 'occaecati', 'ebahringer@example.org', 131323);
-INSERT INTO PersonalInfo (`personID`, `firstName`, `secondName`, `emailAddress`, `phoneNumber`) VALUES (2, 'Sterling', 'nisi', 'ffritsch@example.org', 2123);
-INSERT INTO PersonalInfo (`personID`, `firstName`, `secondName`, `emailAddress`, `phoneNumber`) VALUES (3, 'Zack', 'dolorum', 'isadore.ruecker@example.org', 58293);
-INSERT INTO PersonalInfo (`personID`, `firstName`, `secondName`, `emailAddress`, `phoneNumber`) VALUES (4, 'Mossie', 'aut', 'treutel.celestino@example.org', 239385);
-INSERT INTO PersonalInfo (`personID`, `firstName`, `secondName`, `emailAddress`, `phoneNumber`) VALUES (5, 'Nico', 'veritatis', 'mwunsch@example.net', 29386);
-INSERT INTO PersonalInfo (`personID`, `firstName`, `secondName`, `emailAddress`, `phoneNumber`) VALUES (6, 'Micah', 'saepe', 'mohammed.welch@example.com', 98765);
-INSERT INTO PersonalInfo (`personID`, `firstName`, `secondName`, `emailAddress`, `phoneNumber`) VALUES (7, 'Keeley', 'ut', 'wboyer@example.com', 48705);
-INSERT INTO PersonalInfo (`personID`, `firstName`, `secondName`, `emailAddress`, `phoneNumber`) VALUES (8, 'Rebecca', 'quibusdam', 'jaqueline.quigley@example.com', 847665);
-INSERT INTO PersonalInfo (`personID`, `firstName`, `secondName`, `emailAddress`, `phoneNumber`) VALUES (9, 'Jay', 'debitis', 'cquigley@example.org', 23846);
-INSERT INTO PersonalInfo (`personID`, `firstName`, `secondName`, `emailAddress`, `phoneNumber`) VALUES (10, 'Jaquelin', 'et', 'keaton.mcclure@example.com', 7554);
-INSERT INTO PersonalInfo (`personID`, `firstName`, `secondName`, `emailAddress`, `phoneNumber`) VALUES (11, 'Brittany', 'consequatur', 'austyn17@example.com', 10639);
-INSERT INTO PersonalInfo (`personID`, `firstName`, `secondName`, `emailAddress`, `phoneNumber`) VALUES (12, 'Mariela', 'dolor', 'juvenal.wintheiser@example.org', 647930);
-INSERT INTO PersonalInfo (`personID`, `firstName`, `secondName`, `emailAddress`, `phoneNumber`) VALUES (13, 'Rosalia', 'voluptatem', 'noah.turner@example.com', 388704);
-INSERT INTO PersonalInfo (`personID`, `firstName`, `secondName`, `emailAddress`, `phoneNumber`) VALUES (14, 'Hazle', 'praesentium', 'schneider.berneice@example.org', 94960);
-INSERT INTO PersonalInfo (`personID`, `firstName`, `secondName`, `emailAddress`, `phoneNumber`) VALUES (15, 'Edwardo', 'praesentium', 'quentin64@example.org', 92943);
-INSERT INTO PersonalInfo (`personID`, `firstName`, `secondName`, `emailAddress`, `phoneNumber`) VALUES (16, 'Heather', 'sequi', 'okunde@example.net', 238749);
-INSERT INTO PersonalInfo (`personID`, `firstName`, `secondName`, `emailAddress`, `phoneNumber`) VALUES (17, 'Eleanore', 'error', 'vmitchell@example.org', 42942);
-INSERT INTO PersonalInfo (`personID`, `firstName`, `secondName`, `emailAddress`, `phoneNumber`) VALUES (18, 'Dena', 'omnis', 'price12@example.net', 2134);
-INSERT INTO PersonalInfo (`personID`, `firstName`, `secondName`, `emailAddress`, `phoneNumber`) VALUES (19, 'Emmalee', 'odit', 'santiago.bogisich@example.com', 38286);
-INSERT INTO PersonalInfo (`personID`, `firstName`, `secondName`, `emailAddress`, `phoneNumber`) VALUES (20, 'June', 'qui', 'qwilkinson@example.net', 899687);
+INSERT INTO PersonalInfo (`personID`, `firstName`, `secondName`, `emailAddress`, `phoneNumber`) VALUES
+(1, 'Jarrett', 'occaecati', 'ebahringer@example.org', 131323),
+(2, 'Sterling', 'nisi', 'ffritsch@example.org', 2123),
+(3, 'Zack', 'dolorum', 'isadore.ruecker@example.org', 58293),
+(4, 'Mossie', 'aut', 'treutel.celestino@example.org', 239385),
+(5, 'Nico', 'veritatis', 'mwunsch@example.net', 29386),
+(6, 'Micah', 'saepe', 'mohammed.welch@example.com', 98765),
+(7, 'Keeley', 'ut', 'wboyer@example.com', 48705),
+(8, 'Rebecca', 'quibusdam', 'jaqueline.quigley@example.com', 847665),
+(9, 'Jay', 'debitis', 'cquigley@example.org', 23846),
+(10, 'Jaquelin', 'et', 'keaton.mcclure@example.com', 7554),
+(11, 'Brittany', 'consequatur', 'austyn17@example.com', 10639),
+(12, 'Mariela', 'dolor', 'juvenal.wintheiser@example.org', 647930),
+(13, 'Rosalia', 'voluptatem', 'noah.turner@example.com', 388704),
+(14, 'Hazle', 'praesentium', 'schneider.berneice@example.org', 94960),
+(15, 'Edwardo', 'praesentium', 'quentin64@example.org', 92943),
+(16, 'Heather', 'sequi', 'okunde@example.net', 238749),
+(17, 'Eleanore', 'error', 'vmitchell@example.org', 42942),
+(18, 'Dena', 'omnis', 'price12@example.net', 2134),
+(19, 'Emmalee', 'odit', 'santiago.bogisich@example.com', 38286),
+(20, 'June', 'qui', 'qwilkinson@example.net', 899687);
 
-INSERT INTO Employee (`employeeID`, `personID`, `workEmail`) VALUES (1, 1, 'joccaeti@company.com');
-INSERT INTO Employee (`employeeID`, `personID`, `workEmail`) VALUES (2, 2, 'snisi@company.com');
-INSERT INTO Employee (`employeeID`, `personID`, `workEmail`) VALUES (3, 3, 'zdolorum@company.com');
-INSERT INTO Employee (`employeeID`, `personID`, `workEmail`) VALUES (4, 4, 'maut@company.com');
-INSERT INTO Employee (`employeeID`, `personID`, `workEmail`) VALUES (5, 5, 'nveritatis@company.com');
-INSERT INTO Employee (`employeeID`, `personID`, `workEmail`) VALUES (6, 6, 'msaepe@company.com');
-INSERT INTO Employee (`employeeID`, `personID`, `workEmail`) VALUES (7, 7, 'kut@company.com');
-INSERT INTO Employee (`employeeID`, `personID`, `workEmail`) VALUES (8, 8, 'rquibusdam@company.com');
-INSERT INTO Employee (`employeeID`, `personID`, `workEmail`) VALUES (9, 9, 'jdebitis@company.com');
-INSERT INTO Employee (`employeeID`, `personID`, `workEmail`) VALUES (10, 10, 'jet@company.com');
+INSERT INTO Employee (`employeeID`, `personID`, `workEmail`) VALUES 
+(1, 1, 'joccaeti@company.com'),
+(2, 2, 'snisi@company.com'),
+(3, 3, 'zdolorum@company.com'),
+(4, 4, 'maut@company.com'),
+(5, 5, 'nveritatis@company.com'),
+(6, 6, 'msaepe@company.com'),
+(7, 7, 'kut@company.com'),
+(8, 8, 'rquibusdam@company.com'),
+(9, 9, 'jdebitis@company.com'),
+(10, 10, 'jet@company.com');
 
-INSERT INTO Company (`companyID`, `name`) VALUES (1, 'Vouge');
-INSERT INTO Company (`companyID`, `name`) VALUES (2, 'Radio 4');
-INSERT INTO Company (`companyID`, `name`) VALUES (3, 'E4');
-INSERT INTO Company (`companyID`, `name`) VALUES (4, 'Google');
-INSERT INTO Company (`companyID`, `name`) VALUES (5, 'Facebook');
-INSERT INTO Company (`companyID`, `name`) VALUES (6, 'Bobs Builders');
-INSERT INTO Company (`companyID`, `name`) VALUES (7, 'Asda');                             
-INSERT INTO Company (`companyID`, `name`) VALUES (8, 'Tesla');                             
-INSERT INTO Company (`companyID`, `name`) VALUES (9, 'Times');                             
-INSERT INTO Company (`companyID`, `name`) VALUES (10, 'Programmer Weekly');
+INSERT INTO Company (`companyID`, `name`) VALUES 
+(1, 'Vouge'),
+(2, 'Radio 4'),
+(3, 'E4'),
+(4, 'Google'),
+(5, 'Facebook'),
+(6, 'Bobs Builders'),
+(7, 'Asda'),                             
+(8, 'Tesla'),                            
+(9, 'Times'),                       
+(10, 'Programmer Weekly');
                              
-INSERT INTO Client (`clientID`, `personID`, `companyID`) VALUES (1, 11, '6');
-INSERT INTO Client (`clientID`, `personID`, `companyID`) VALUES (2, 12, '7');
-INSERT INTO Client (`clientID`, `personID`, `companyID`) VALUES (3, 13, '8');
+INSERT INTO Client (`clientID`, `personID`, `companyID`) VALUES
+(1, 11, '6'),
+(2, 12, '7'),
+(3, 13, '8');
                   
-INSERT INTO Campaign (`campaignID`, `clientID`, `startDate`, `endDate`) VALUES (1, 1, '2018.08.15', '2018.02.15');
-INSERT INTO Campaign (`campaignID`, `clientID`, `startDate`, `endDate`) VALUES (2, 2, '2018.12.24', '2018.06.24');
-INSERT INTO Campaign (`campaignID`, `clientID`, `startDate`, `endDate`) VALUES (3, 3, '2018.04.29', '2018.10.29');
+INSERT INTO Campaign (`campaignID`, `clientID`, `startDate`, `endDate`) VALUES 
+(1, 1, '2018.08.15', '2018.02.15'),
+(2, 2, '2018.12.24', '2018.06.24'),
+(3, 3, '2018.04.29', '2018.10.29');
 
-INSERT INTO Advert (`advertID`, `campaignID`, `form`) VALUES (1, 1, 'mag');
-INSERT INTO Advert (`advertID`, `campaignID`, `form`) VALUES (2, 2, 'tv');
-INSERT INTO Advert (`advertID`, `campaignID`, `form`) VALUES (3, 3, 'web');
-INSERT INTO Advert (`advertID`, `campaignID`, `form`) VALUES (4, 1, 'web');
-INSERT INTO Advert (`advertID`, `campaignID`, `form`) VALUES (5, 2, 'radio');
-INSERT INTO Advert (`advertID`, `campaignID`, `form`) VALUES (6, 3, 'mag');
-INSERT INTO Advert (`advertID`, `campaignID`, `form`) VALUES (7, 1, 'tv');
-INSERT INTO Advert (`advertID`, `campaignID`, `form`) VALUES (8, 2, 'mag');
-INSERT INTO Advert (`advertID`, `campaignID`, `form`) VALUES (9, 3, 'web');
-INSERT INTO Advert (`advertID`, `campaignID`, `form`) VALUES (10, 1, 'radio');
+INSERT INTO Advert (`advertID`, `campaignID`, `form`) VALUES 
+(1, 1, 'mag'),
+(2, 2, 'tv'),
+(3, 3, 'web'),
+(4, 1, 'web'),
+(5, 2, 'radio'),
+(6, 3, 'mag'),
+(7, 1, 'tv'),
+(8, 2, 'mag'),
+(9, 3, 'web'),
+(10, 1, 'radio');
 
-INSERT INTO Invoice (`invoiceID`, `campaignID`, `clientID`, `cost`) VALUES ( 1, 1, 1, 61);
-INSERT INTO Invoice (`invoiceID`, `campaignID`, `clientID`, `cost`) VALUES ( 2, 2, 2, 81);
-INSERT INTO Invoice (`invoiceID`, `campaignID`, `clientID`, `cost`) VALUES ( 3, 3, 3, NULL);
-INSERT INTO Invoice (`invoiceID`, `campaignID`, `clientID`, `cost`) VALUES ( 4, 4, 4, NULL);
-INSERT INTO Invoice (`invoiceID`, `campaignID`, `clientID`, `cost`) VALUES ( 5, 5, 5, NULL);
-INSERT INTO Invoice (`invoiceID`, `campaignID`, `clientID`, `cost`) VALUES ( 6, 6, 6, NULL);
-INSERT INTO Invoice (`invoiceID`, `campaignID`, `clientID`, `cost`) VALUES ( 7, 7, 7, NULL);
-INSERT INTO Invoice (`invoiceID`, `campaignID`, `clientID`, `cost`) VALUES ( 8, 8, 8, NULL);
-INSERT INTO Invoice (`invoiceID`, `campaignID`, `clientID`, `cost`) VALUES ( 9, 9, 9, NULL);
-INSERT INTO Invoice (`invoiceID`, `campaignID`, `clientID`, `cost`) VALUES ( 10, 10, 10, 48);
+INSERT INTO Invoice (`invoiceID`, `campaignID`, `clientID`, `cost`) VALUES 
+( 1, 1, 1, 61),
+( 2, 2, 2, 81),
+( 3, 3, 3, NULL),
+( 4, 4, 4, NULL),
+( 5, 5, 5, NULL),
+( 6, 6, 6, NULL),
+( 7, 7, 7, NULL),
+( 8, 8, 8, NULL),
+( 9, 9, 9, NULL),
+( 10, 10, 10, NULL);
                              
-INSERT INTO Magazine (`advertID`, `companyID`, `textSize`, `position`, `number`) VALUES (1, 1, 'large', 'top-right', 6);
-INSERT INTO Magazine (`advertID`, `companyID`, `textSize`, `position`, `number`) VALUES (6, 9, 'small', 'middle-center', 3);
-INSERT INTO Magazine (`advertID`, `companyID`, `textSize`, `position`, `number`) VALUES (8, 10, 'medium', 'bottom-left', 1);
+INSERT INTO Magazine (`advertID`, `companyID`, `textSize`, `position`, `number`) VALUES 
+(1, 1, 'large', 'top-right', 6),
+(6, 9, 'small', 'middle-center', 3),
+(8, 10, 'medium', 'bottom-left', 1);
                     
                          
-INSERT INTO TVRadio (`advertID`, `slot`, `runTime`, `companyID`, `broadcastingNo`, `form`) VALUES (10, 18.00, 120, 2, 25,'radio');
-INSERT INTO TVRadio (`advertID`, `slot`, `runTime`, `companyID`, `broadcastingNo`, `form`) VALUES (2, 10.00, 120, 2, 15,'tv');
-INSERT INTO TVRadio (`advertID`, `slot`, `runTime`, `companyID`, `broadcastingNo`, `form`) VALUES (5, 13.00, 120, 1, 35,'radio');
-INSERT INTO TVRadio (`advertID`, `slot`, `runTime`, `companyID`, `broadcastingNo`, `form`) VALUES (7, 07.00, 120, 1, 50,'tv');
+INSERT INTO TVRadio (`advertID`, `slot`, `runTime`, `companyID`, `broadcastingNo`, `form`) VALUES 
+(10, 18.00, 120, 2, 25,'radio'),
+(2, 10.00, 120, 2, 15,'tv'),
+(5, 13.00, 120, 1, 35,'radio'),
+(7, 07.00, 120, 1, 50,'tv');
 
                          
-INSERT INTO Web (`advertID`, `companyID`, `demographic`, `region`, `views`) VALUES (3, 5, '16-30', 'region', 100);
-INSERT INTO Web (`advertID`, `companyID`, `demographic`, `region`, `views`) VALUES (4, 8, '35-65', 'region', 100);
-INSERT INTO Web (`advertID`, `companyID`, `demographic`, `region`, `views`) VALUES (9, 4, '15<', 'region', 100);
+INSERT INTO Web (`advertID`, `companyID`, `demographic`, `region`, `views`) VALUES 
+(3, 5, '16-30', 'region', 100),
+(4, 8, '35-65', 'region', 100),
+(9, 4, '15<', 'region', 100);
 
 
-INSERT INTO WorkDone (`campaignID`, `employeeID`, `hoursWorked`) VALUES (1, 1, 12);
-INSERT INTO WorkDone (`campaignID`, `employeeID`, `hoursWorked`) VALUES (1, 5, 21);
-INSERT INTO WorkDone (`campaignID`, `employeeID`, `hoursWorked`) VALUES (1, 7, 4);
-INSERT INTO WorkDone (`campaignID`, `employeeID`, `hoursWorked`) VALUES (1, 10, 7);
-INSERT INTO WorkDone (`campaignID`, `employeeID`, `hoursWorked`) VALUES (2, 9, 28);
-INSERT INTO WorkDone (`campaignID`, `employeeID`, `hoursWorked`) VALUES (2, 3, 30);
-INSERT INTO WorkDone (`campaignID`, `employeeID`, `hoursWorked`) VALUES (3, 2, 7);
-INSERT INTO WorkDone (`campaignID`, `employeeID`, `hoursWorked`) VALUES (3, 8, 18);
-INSERT INTO WorkDone (`campaignID`, `employeeID`, `hoursWorked`) VALUES (3, 4, 20);
-INSERT INTO WorkDone (`campaignID`, `employeeID`, `hoursWorked`) VALUES (3, 6, 16);
+INSERT INTO WorkDone (`campaignID`, `employeeID`, `hoursWorked`) VALUES 
+(1, 1, 12),
+(1, 5, 21),
+(1, 7, 4),
+(1, 10, 7),
+(2, 9, 28),
+(2, 3, 30),
+(3, 2, 7),
+(3, 8, 18),
+(3, 4, 20),
+(3, 6, 16);
