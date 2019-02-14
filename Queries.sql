@@ -17,7 +17,7 @@ WHERE Employee.employeeID NOT IN
 );
 
 
-/* Query 2 */
+/* Query 2 Need to ad all types*/
 SELECT Client.clientID, PersonalInfo.firstName, PersonalInfo.secondName, COUNT(Advert.form) AS NumberOfRadioAdverts
 FROM PersonalInfo
 	INNER JOIN Client
@@ -39,6 +39,15 @@ FROM (
 INNER JOIN Employee ON Employee.employeeID = ID
 INNER JOIN PersonalInfo ON PersonalInfo.personID = Employee.personID;
 
+/*Query 4 */
+UPDATE Invoice
+INNER JOIN (
+	SELECT  WorkDone.campaignID AS ID, SUM(WorkDone.hoursWorked)*20 AS newCost
+	FROM WorkDone  
+	GROUP BY WorkDone.campaignID
+) AS Costs ON ID = Invoice.campaignID
+SET Invoice.cost = newCost
+WHERE Invoice.campaignID = ID;
 
 /*Corbin Beaumont, Query 1, Calculates average cost of all campaigns for clients who have clientID beginning with 1.*/
 SELECT avg(cost) 
