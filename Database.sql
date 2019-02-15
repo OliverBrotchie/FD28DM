@@ -190,11 +190,11 @@ INSERT INTO Advert (`advertID`, `companyID`, `campaignID`,  `form`) VALUES
 (23, 6, 10, 'web'), (24, 1, 10, 'mag'), (25, 2, 10, 'radio');
                   
 INSERT INTO Web (`advertID`, `demographic`, `region`, `views`) VALUES 
-(2, '16-30', 'region', 100),
-(8, '35-65', 'region', 100),
-(11, '>15', 'region', 100),
-(14, '<15', 'region', 100),
-(23, '20-65', 'region', 100);                                
+(2, '16-30', 'America', 100),
+(8, '35-65', 'America, 100),
+(11, '>15', 'UK', 100),
+(14, '<15', 'FRANCE', 100),
+(23, '20-65', 'CANADA', 100);                                
                                                               
 INSERT INTO Magazine (`advertID`, `textSize`, `position`, `issues`) VALUES 
 (1, 'large', 'top-right', 16),
