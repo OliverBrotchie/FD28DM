@@ -45,10 +45,12 @@ CREATE TABLE `Campaign` (
 
 CREATE TABLE `Advert` (
   `advertID` int(6) NOT NULL AUTO_INCREMENT,
+  `companyID` int(6) NOT NULL,
   `campaignID` int(6) NOT NULL,
   `form` varchar(5) NOT NULL,
   PRIMARY KEY (`advertID`),
   FOREIGN KEY (`campaignID`) REFERENCES Campaign(`campaignID`),
+  FOREIGN KEY(`companyID`) REFERENCES Company(`companyID`),
   CONSTRAINT form CHECK (form IN ('web', 'mag', 'tv', 'radio'))
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -64,13 +66,11 @@ CREATE TABLE `Invoice` (
 
 CREATE TABLE `Magazine` (
   `advertID` int(6) NOT NULL AUTO_INCREMENT,
-  `companyID` int(6) NOT NULL,
   `textSize` varchar(16) NOT NULL,
   `position` varchar(16) NOT NULL,
   `issues` int(4) NOT NULL,
   PRIMARY KEY (`advertID`),
   FOREIGN KEY (`advertID`) REFERENCES Advert(`advertID`),
-  FOREIGN KEY(`companyID`) REFERENCES Company(`companyID`),
   CONSTRAINT textSize CHECK (textSize IN('small','medium','large')),
   CONSTRAINT position CHECK (position IN ('top-right', 'top-center', 'top-left','middle-right', 'middle-center', 'middle-left','bottom-right', 'bottom-center', 'bottom-left', 'custom'))                                      
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -80,23 +80,19 @@ CREATE TABLE `TVRadio` (
   `advertID` int(6) NOT NULL AUTO_INCREMENT,
   `slot` time NOT NULL,
   `runTime` int(5) NOT NULL,
-  `companyID` int(6) NOT NULL,
   `broadcastingNo` int(4) NOT NULL,
   PRIMARY KEY(`advertID`),
-  FOREIGN KEY (`advertID`) REFERENCES Advert(`advertID`),
-  FOREIGN KEY(`companyID`) REFERENCES Company(`companyID`)
+  FOREIGN KEY (`advertID`) REFERENCES Advert(`advertID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
 CREATE TABLE `Web` (
   `advertID` int(6) NOT NULL AUTO_INCREMENT,
-  `companyID` int(6) NOT NULL,
   `demographic` varchar(32) NOT NULL,
   `region` varchar(64) NOT NULL,
   `views` int(8) NOT NULL,
   PRIMARY KEY(`advertID`),
   FOREIGN KEY (`advertID`) REFERENCES Advert(`advertID`),
-  FOREIGN KEY(`companyID`) REFERENCES Company(`companyID`),
   CONSTRAINT demographic CHECK (demographic IN( '%-%', '<%', '>%' ))
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -181,17 +177,50 @@ INSERT INTO Campaign (`campaignID`, `clientID`, `startDate`, `endDate`) VALUES
 (9, 9, '2018.05.03', '2018.11.03'),
 (10, 10, '2018.08.11', '2019.02.11');
 
-INSERT INTO Advert (`advertID`, `campaignID`, `form`) VALUES 
-(1, 1, 'mag'), (2, 1, 'web'), (3, 1, 'tv'), (4, 1, 'radio'),
-(5, 2, 'tv'), (6, 2, 'radio'), (7, 2, 'mag'),
-(8, 3, 'web'), (9, 3, 'mag'), (10, 3, 'tv'),
-(11, 4, 'web'), (12, 4, 'radio'),
-(13, 5, 'tv'),
-(14, 6, 'web'), (15, 6, 'mag'), (16, 6, 'radio'), (17, 6, 'tv'),
-(18, 7, 'radio'), (19, 7, 'mag'), 
-(20, 8, 'tv'), (21, 8, 'radio'),
-(22, 9, 'tv'),
-(23, 10, 'web'), (24, 10, 'mag'), (25, 10, 'radio');
+INSERT INTO Advert (`advertID`, `companyID`, `campaignID`,  `form`) VALUES 
+(1, 1, 1, 'mag'), (2, 5, 1, 'web'), (3, 3, 1, 'tv'), (4, 2, 1, 'radio'),
+(5, 2, 3, 'tv'), (6, 2, 2, 'radio'), (7, 9, 2, 'mag'),
+(8, 8, 3, 'web'), (9, 10, 3, 'mag'), (10, 3, 3, 'tv'),
+(11, 4, 4, 'web'), (12, 2, 4, 'radio'),
+(13, 3, 5, 'tv'),
+(14, 7, 6, 'web'), (15, 1, 6, 'mag'), (16, 2, 6, 'radio'), (17, 3, 6, 'tv'),
+(18, 2, 1, 'radio'), (19, 1, 7, 'mag'), 
+(20, 3, 8, 'tv'), (21, 2, 8, 'radio'),
+(22, 3, 9, 'tv'),
+(23, 6, 10, 'web'), (24, 1, 10, 'mag'), (25, 2, 10, 'radio');
+                  
+INSERT INTO Web (`advertID`, `demographic`, `region`, `views`) VALUES 
+(2, '16-30', 'region', 100),
+(8, '35-65', 'region', 100),
+(11, '>15', 'region', 100),
+(14, '15<', 'region', 100),
+(23, '20-65', 'region', 100);                                
+                                                              
+INSERT INTO Magazine (`advertID`, `textSize`, `position`, `issues`) VALUES 
+(1, 'large', 'top-right', 16),
+(7,'small', 'middle-center',23),
+(9, 'medium', 'bottom-left', 10),
+(15, 'medium', 'middle-left', 14),
+(19, 'large', 'custom', 19),                          
+(24, 'small', 'top-left', 7);
+                        
+INSERT INTO TVRadio (`advertID`, `slot`, `runTime`,`broadcastingNo`) VALUES 
+/*Radio Adverts*/
+(4, '10:00', 120,15),
+(6, '13:00', 120,35),
+(12, '07:00', 120, 23),
+(16, '17:00', 120, 12),
+(18, '09:00', 120, 9),
+(21, '21:00', 120, 25),
+(25, '22:00', 120, 36),
+/*TV Adverts*/
+(3, '07:00', 120, 12),
+(5, '10:00', 120, 31),
+(10, '12:00', 120, 9),
+(13, '23:00', 120, 10),
+(17, '06:00', 120, 17),
+(20, '17:00', 120, 40),
+(22, '20:00', 120, 27);
 
 
 INSERT INTO Invoice (`invoiceID`, `campaignID`, `clientID`, `cost`) VALUES 
@@ -205,44 +234,7 @@ INSERT INTO Invoice (`invoiceID`, `campaignID`, `clientID`, `cost`) VALUES
 ( 8, 8, 8, NULL),
 ( 9, 9, 9, NULL),
 ( 10, 10, 10, NULL);
-                             
-INSERT INTO Magazine (`advertID`, `companyID`, `textSize`, `position`, `issues`) VALUES 
-(1, 1, 'large', 'top-right', 16),
-(7, 9, 'small', 'middle-center',23),
-(9, 10, 'medium', 'bottom-left', 10),
-(15, 1, 'medium', 'middle-left', 14),
-(18, 1, 'large', 'custom', 19),
-(23, 9, 'small', 'top-left', 7);
-                    
-                         
-INSERT INTO TVRadio (`advertID`, `slot`, `runTime`, `companyID`, `broadcastingNo`) VALUES 
-/*Radio Adverts*/
-(4, 10.00, 120, 2, 15),
-(6, 13.00, 120, 2, 35),
-(12, 07.00, 120, 2, 23),
-(16, 17.00, 120, 2, 12),
-(18, 09.00, 120, 2, 9),
-(21, 21.00, 120, 2, 25),
-(25, 22.00, 120, 2, 36),
-
-/*TV Adverts*/
-(3, 07.00, 120, 3, 12),
-(5, 10.00, 120, 3, 31),
-(10, 12.00, 120, 3, 9),
-(13, 23.00, 120, 3, 10),
-(17, 06.00, 120, 3, 17),
-(20, 17.00, 120, 3, 40),
-(22, 20.00, 120, 3, 27);
-
-                         
-INSERT INTO Web (`advertID`, `companyID`, `demographic`, `region`, `views`) VALUES 
-(2, 5, '16-30', 'region', 100),
-(8, 8, '35-65', 'region', 100),
-(11, 4, '>15', 'region', 100),
-(14, 7, '15<', 'region', 100),
-(23, 6, '20-65', 'region', 100);
-
-
+                                
 INSERT INTO WorkDone (`campaignID`, `employeeID`, `hoursWorked`) VALUES 
 (1, 1, 12), (1, 5, 21), (1, 7, 4), (1, 10, 7),
 (2, 9, 28), (2, 3, 30),
