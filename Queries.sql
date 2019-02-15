@@ -106,17 +106,17 @@ WHERE Web.advertID IN (
 	FROM (SELECT SUBSTRING_INDEX(Web.demographic, '>', -1) AS GTValue, Web.advertID AS GTID FROM Web WHERE Web.demographic LIKE ">%") AS GTQuery
 		INNER JOIN Web
 			ON Web.advertID = GTID
-	WHERE CONVERT(GTValue,UNSIGNED INTEGER) <= 16
+	WHERE CONVERT(GTValue,UNSIGNED INTEGER) <= 30
 ) OR Web.advertID IN (
 	SELECT Web.advertID
 	FROM (SELECT SUBSTRING_INDEX(Web.demographic, '<', -1) AS LTValue, Web.advertID AS LTID FROM Web WHERE Web.demographic LIKE "<%") AS LTQuery
 		INNER JOIN Web
 			ON Web.advertID = LTID
-	WHERE CONVERT(LTValue,UNSIGNED INTEGER) >= 30  
+	WHERE CONVERT(LTValue,UNSIGNED INTEGER) >= 30 AND CONVERT(LTValue,UNSIGNED INTEGER) >= 16 
 ) OR Web.advertID IN (
 	SELECT Web.advertID
 	FROM (SELECT SUBSTRING_INDEX(Web.demographic, '-', 1) AS ToLValue ,SUBSTRING_INDEX(Web.demographic, '-', -1) AS ToRValue, Web.advertID AS ToID FROM Web WHERE Web.demographic LIKE "%-%") AS ToQuery
 		INNER JOIN Web
 			ON Web.advertID = ToID
-	WHERE CONVERT(ToLValue,UNSIGNED INTEGER) <= 16 OR CONVERT(ToRValue,UNSIGNED INTEGER) >= 30
+	WHERE CONVERT(ToLValue,UNSIGNED INTEGER) <= 16 AND CONVERT(ToRValue,UNSIGNED INTEGER) >= 30
 );
