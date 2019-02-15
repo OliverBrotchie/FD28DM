@@ -85,15 +85,38 @@ FROM PersonalInfo
 	INNER JOIN Employee
 		ON Employee.personID = PersonalInfo.personID;
 SELECT vEmployeeID.EmployeeID, vEmployeeID.firstName, vEmployeeID.secondName
-FROM vEmployeeID
-WHERE vEmployeeID.secondName = 'et';
+FROM vEmployeeID;
 
 
 
-/* Oliver Brotchie Query 1, All middle managers */
+
+/* Oliver Brotchie Query 1, All middle managers (Anyone who is a manager but also has their own manager) */
 SELECT *
 FROM Employee
 WHERE Employee.employeeID IN (
 	SELECT Employee.ManagerID
 	FROM Employee 
 ) AND Employee.managerID IS NOT NULL;
+
+/* Oliver Brotchi, Query 2, Find all adverts that have a target demographic that aplies to 16 - 30 year olds */
+SELECT * 
+FROM Web
+WHERE Web.advertID IN (
+	SELECT Web.advertID
+	FROM (SELECT SUBSTRING_INDEX(Web.demographic, '>', -1) AS GTValue, Web.advertID AS GTID FROM Web WHERE Web.demographic LIKE ">%") AS GTQuery
+		INNER JOIN Web
+			ON Web.advertID = GTID
+	WHERE CONVERT(GTValue,UNSIGNED INTEGER) <= 16
+) OR Web.advertID IN (
+	SELECT Web.advertID
+	FROM (SELECT SUBSTRING_INDEX(Web.demographic, '<', -1) AS LTValue, Web.advertID AS LTID FROM Web WHERE Web.demographic LIKE "<%") AS LTQuery
+		INNER JOIN Web
+			ON Web.advertID = LTID
+	WHERE CONVERT(LTValue,UNSIGNED INTEGER) >= 30  
+) OR Web.advertID IN (
+	SELECT Web.advertID
+	FROM (SELECT SUBSTRING_INDEX(Web.demographic, '-', 1) AS ToLValue ,SUBSTRING_INDEX(Web.demographic, '-', -1) AS ToRValue, Web.advertID AS ToID FROM Web WHERE Web.demographic LIKE "%-%") AS ToQuery
+		INNER JOIN Web
+			ON Web.advertID = ToID
+	WHERE CONVERT(ToLValue,UNSIGNED INTEGER) <= 16 OR CONVERT(ToRValue,UNSIGNED INTEGER) >= 30
+);
