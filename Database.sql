@@ -193,7 +193,7 @@ INSERT INTO Web (`advertID`, `demographic`, `region`, `views`) VALUES
 (2, '16-30', 'region', 100),
 (8, '35-65', 'region', 100),
 (11, '>15', 'region', 100),
-(14, '15<', 'region', 100),
+(14, '<15', 'region', 100),
 (23, '20-65', 'region', 100);                                
                                                               
 INSERT INTO Magazine (`advertID`, `textSize`, `position`, `issues`) VALUES 
