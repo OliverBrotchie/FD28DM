@@ -27,6 +27,19 @@ FROM Client
 WHERE Advert.form = "radio"
 GROUP BY clientID;
 
+SELECT Client.clientID,  radio, tv, web, magazine
+FROM Client
+	INNER JOIN Campaign
+		ON Campaign.clientID = Client.clientID
+	INNER JOIN ( SELECT Advert.campaignID radioID, COUNT(Advert.form)  AS radio FROM Advert WHERE Advert.form = 'radio' GROUP BY radioID) AS RadioQ 
+		ON radioID = Campaign.campaignID
+	INNER JOIN ( SELECT Advert.campaignID tvID, COUNT(Advert.form)  AS tv FROM Advert WHERE Advert.form = 'tv' GROUP BY tvID) AS tvQ 
+		ON tvID = Campaign.campaignID
+	INNER JOIN ( SELECT Advert.campaignID webID, COUNT(Advert.form)  AS web FROM Advert WHERE Advert.form = 'web' GROUP BY webID) AS webQ 
+		ON webID = Campaign.campaignID
+	INNER JOIN ( SELECT Advert.campaignID magID, COUNT(Advert.form)  AS magazine FROM Advert WHERE Advert.form = 'mag' GROUP BY magID) AS magQ 
+		ON magID = Campaign.campaignID;
+
 
 /* Query 3 */
 SELECT ID AS EmployeeID, PersonalInfo.firstName,PersonalInfo.secondName, MAX(hours) AS MaxHoursWorked
