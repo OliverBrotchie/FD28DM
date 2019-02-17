@@ -7,7 +7,7 @@ CREATE TABLE   `PersonalInfo` (
   PRIMARY KEY(`personID`)
  ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-CREATE TABLE   `Company` (
+CREATE TABLE  `Company` (
   `companyID` int(6) NOT NULL UNIQUE AUTO_INCREMENT,
   `name` varchar(30) NOT NULL,
   PRIMARY KEY(`companyID`)
@@ -191,7 +191,7 @@ INSERT INTO Advert (`advertID`, `companyID`, `campaignID`,  `form`) VALUES
                   
 INSERT INTO Web (`advertID`, `demographic`, `region`, `views`) VALUES 
 (2, '16-30', 'America', 100),
-(8, '35-65', 'America, 100),
+(8, '35-65', 'America', 100),
 (11, '>15', 'UK', 100),
 (14, '<15', 'FRANCE', 100),
 (23, '20-65', 'CANADA', 100);                                
