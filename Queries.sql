@@ -148,3 +148,12 @@ FROM Employee
 		
 		SELECT vHours.campaignID, vHours.cost, vHours.NumberOfEmployees
 FROM vHours;
+
+
+SELECT Campaign.clientID, Campaign.campaignID, Advert.advertID, Web.region
+FROM Campaign
+	INNER JOIN Advert
+		ON Advert.campaignID = Campaign.campaignID
+	INNER JOIN Web
+		ON Web.advertID = Advert.advertID
+	WHERE region = 'America';
