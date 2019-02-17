@@ -61,11 +61,11 @@ INNER JOIN (
 SET Invoice.cost = newCost
 WHERE Invoice.campaignID = ID;
 
-/*Corbin Beaumont, Query 1, Calculates average cost of all campaigns for clients who have clientID beginning with 1.*/
-SELECT avg(cost) 
+/*Corbin Beaumont, Query 1, Calculates average cost of all campaigns for the first 10 clients.*/
+SELECT clientID, avg(cost) 
 FROM invoice   
 GROUP BY clientID 
-HAVING clientID LIKE '1%';
+HAVING clientID < 11;
 
 /*Corbin Beaumont, Query 2, calculates the earnings per hour worked and groups it by campaign ID*/
 SELECT Invoice.campaignID, sum(Invoice.cost) DIV sum(WorkDone.hoursworked) AS averageCostPerHour
@@ -135,7 +135,7 @@ WHERE Web.advertID IN (
 
 
 
-/* Cameron Bone, Query 1, Displays a view of number of Employees who worked on each Campaign and the cost of each campaign*/
+/* Cameron Bone, Displays view of number of hours worked on for each Campaign and the cost of each campaign*/
 CREATE VIEW vHours AS
 SELECT Campaign.campaignID, Invoice.cost, COUNT(WorkDone.employeeID) AS NumberOfEmployees
 FROM Employee
@@ -144,9 +144,7 @@ FROM Employee
 	INNER JOIN Campaign
 		ON Campaign.campaignID = WorkDone.campaignID
 	INNER JOIN Invoice
-		ON Invoice.campaignID = Campaign.campaignID
-	GROUP BY Campaign.campaignID;
+		ON Invoice.campaignID = Campaign.campaignID;
 		
-
-SELECT vHours.campaignID, vHours.cost, vHours.NumberOfEmployees
+		SELECT vHours.campaignID, vHours.cost, vHours.NumberOfEmployees
 FROM vHours;
