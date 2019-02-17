@@ -140,6 +140,9 @@ CREATE VIEW vHours AS
 SELECT Campaign.campaignID, Invoice.cost, COUNT(WorkDone.employeeID) AS NumberOfEmployees
 FROM Campaign
 	INNER JOIN Invoice
-		ON Invoice.campaignID = Campaign.campaignID;
+		ON Invoice.campaignID = Campaign.campaignID
 	INNER JOIN WorkDone
-		ON WorkDone.employeeID = Campaign.employeeID;
+		ON WorkDone.campaignID = Campaign.campaignID;
+		
+		SELECT vHours.campaignID, vHours.cost, vHours.NumberOfEmployees
+FROM vHours;
