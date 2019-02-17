@@ -97,7 +97,7 @@ WHERE Employee.employeeID IN (
 	FROM Employee 
 ) AND Employee.managerID IS NOT NULL;
 
-/* Oliver Brotchi, Query 2, Find all adverts that have a target demographic that aplies to 16 - 30 year olds */
+/* Oliver Brotchie, Query 2, Find all adverts that have a target demographic that aplies to 16 - 30 year olds */
 SELECT * 
 FROM Web
 WHERE Web.advertID IN (
