@@ -150,10 +150,14 @@ FROM Employee
 FROM vHours;
 
 
-SELECT Campaign.clientID, Campaign.campaignID, Advert.advertID, Web.region
-FROM Campaign
-	INNER JOIN Advert
-		ON Advert.campaignID = Campaign.campaignID
-	INNER JOIN Web
-		ON Web.advertID = Advert.advertID
-	WHERE region = 'America';
+SELECT Campaign.clientID, avg(TVRadio.runTime) AS Average_Runtime
+FROM TVRadio
+	INNER JOIN Campaign 
+		ON Campaign.campaignID = Advert.campaignID 
+	INNER JOIN Advert 
+		ON Advert.advertID = TVRadio.advertID
+GROUP BY Campaign.clientID
+HAVING Average_Runtime > 40;
+
+	
+	
