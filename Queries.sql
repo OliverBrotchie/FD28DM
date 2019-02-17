@@ -122,7 +122,7 @@ WHERE Web.advertID IN (
 
 
 
-/* Cameron Bone, Query 1, Displays view of number of hours worked on for each Campaign and the cost of each campaign*/
+/* Cameron Bone, Displays view of number of hours worked on for each Campaign and the cost of each campaign*/
 CREATE VIEW vHours AS
 SELECT Campaign.campaignID, Invoice.cost, COUNT(WorkDone.employeeID) AS NumberOfEmployees
 FROM Campaign
