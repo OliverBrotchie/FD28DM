@@ -56,11 +56,11 @@ CREATE TABLE `Advert` (
 
 
 CREATE TABLE `Invoice` (
-  `invoiceID` int(6) NOT NULL AUTO_INCREMENT,
   `campaignID` int(6) NOT NULL UNIQUE,
-  `clientID` int(6) NOT NULL UNIQUE,
+  `clientID` int(6) NOT NULL,
   `cost` int(16),
-  PRIMARY KEY(`invoiceID`)
+  PRIMARY KEY(`campaignID`),
+  FOREIGN KEY (`campaignID`) REFERENCES Campaign(`campaignID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
