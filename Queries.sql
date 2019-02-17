@@ -135,7 +135,7 @@ WHERE Web.advertID IN (
 
 
 
-/* Cameron Bone, Displays view of number of hours worked on for each Campaign and the cost of each campaign*/
+/* Cameron Bone, Query 1, Displays a view of number of Employees who worked on each Campaign and the cost of each campaign*/
 CREATE VIEW vHours AS
 SELECT Campaign.campaignID, Invoice.cost, COUNT(WorkDone.employeeID) AS NumberOfEmployees
 FROM Employee
@@ -144,7 +144,9 @@ FROM Employee
 	INNER JOIN Campaign
 		ON Campaign.campaignID = WorkDone.campaignID
 	INNER JOIN Invoice
-		ON Invoice.campaignID = Campaign.campaignID;
+		ON Invoice.campaignID = Campaign.campaignID
+	GROUP BY Campaign.campaignID;
 		
-		SELECT vHours.campaignID, vHours.cost, vHours.NumberOfEmployees
+
+SELECT vHours.campaignID, vHours.cost, vHours.NumberOfEmployees
 FROM vHours;
