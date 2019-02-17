@@ -18,15 +18,14 @@ WHERE Employee.employeeID NOT IN
 
 
 /* Query 2 Need to add all types*/
-SELECT Client.clientID, PersonalInfo.firstName, PersonalInfo.secondName, COUNT(Advert.form) AS NumberOfRadioAdverts
-FROM PersonalInfo
-	INNER JOIN Client
-		ON Client.personID = personalInfo.personID
+SELECT Client.clientID, COUNT(Advert.form) AS NumberOfRadioAdverts
+FROM Client
 	INNER JOIN Campaign
 		ON Campaign.clientID = Client.clientID
 	INNER JOIN Advert
 		ON Advert.campaignID = Campaign.campaignID
-WHERE Advert.form = "radio";
+WHERE Advert.form = "radio"
+GROUP BY clientID;
 
 
 /* Query 3 */
