@@ -119,3 +119,14 @@ WHERE Web.advertID IN (
 			ON Web.advertID = ToID
 	WHERE CONVERT(ToLValue,UNSIGNED INTEGER) <= 16 AND CONVERT(ToRValue,UNSIGNED INTEGER) >= 30
 );
+
+
+
+/* Cameron Bone, Query 1, Displays view of number of hours worked on for each Campaign and the cost of each campaign*/
+CREATE VIEW vHours AS
+SELECT Campaign.campaignID, Invoice.cost, COUNT(WorkDone.employeeID) AS NumberOfEmployees
+FROM Campaign
+	INNER JOIN Invoice
+		ON Invoice.campaignID = Campaign.campaignID;
+	INNER JOIN WorkDone
+		ON WorkDone.employeeID = Campaign.employeeID;
