@@ -223,17 +223,17 @@ INSERT INTO TVRadio (`advertID`, `slot`, `runTime`,`broadcastingNo`) VALUES
 (22, '20:00', 20, 27);
 
 
-INSERT INTO Invoice (`invoiceID`, `campaignID`, `clientID`, `cost`) VALUES 
-( 1, 1, 1, 61),
-( 2, 2, 2, 81),
-( 3, 3, 3, NULL),
-( 4, 4, 4, NULL),
-( 5, 5, 5, NULL),
-( 6, 6, 6, NULL),
-( 7, 7, 7, NULL),
-( 8, 8, 8, NULL),
-( 9, 9, 9, NULL),
-( 10, 10, 10, NULL);
+INSERT INTO Invoice (`campaignID`, `clientID`, `cost`) VALUES 
+( 1, 1, 61),
+( 2, 2, 81),
+( 3, 3, NULL),
+( 4, 4, NULL),
+( 5, 5, NULL),
+( 6, 6, NULL),
+( 7, 7, NULL),
+( 8, 8, NULL),
+( 9, 9, NULL),
+( 10, 10, NULL);
                                 
 INSERT INTO WorkDone (`campaignID`, `employeeID`, `hoursWorked`) VALUES 
 (1, 1, 12), (1, 5, 21), (1, 7, 4), (1, 10, 7),
