@@ -51,6 +51,9 @@ FROM (
 INNER JOIN Employee ON Employee.employeeID = ID
 INNER JOIN PersonalInfo ON PersonalInfo.personID = Employee.personID;
 
+/*Before Update*/
+SELECT * FROM Invoice;
+
 /*Query 4 */
 UPDATE Invoice
 INNER JOIN (
@@ -61,8 +64,8 @@ INNER JOIN (
 SET Invoice.cost = newCost
 WHERE Invoice.campaignID = ID;
 
-
-
+/*After Update*/
+SELECT * FROM InVoice;
 
 
 /*Corbin Beaumont, Query 1, Calculates average cost of all campaigns for the first 10 clients.*/
@@ -98,6 +101,7 @@ WHERE Employee.employeeID NOT IN
 ORDER BY Employee.employeeID;
 
 /* Philip Lawson, Query 2, View that displays a list of employee ID's and their first and last names*/
+DROP VIEW vEmployeeID;
 CREATE VIEW vEmployeeID AS
 SELECT Employee.EmployeeID, PersonalInfo.firstName, PersonalInfo.secondName
 FROM PersonalInfo
@@ -146,6 +150,7 @@ WHERE Web.advertID IN (
 
 
 /* Cameron Bone, Query 1, Displays view of number of hours worked on for each Campaign and the cost of each campaign*/
+DROP VIEW vHours;
 CREATE VIEW vHours AS
 SELECT Campaign.campaignID, Invoice.cost, COUNT(WorkDone.employeeID) AS NumberOfEmployees
 FROM Employee
@@ -172,6 +177,9 @@ GROUP BY Campaign.clientID
 HAVING Average_Runtime > 40;
 
 
+
+
+
 /* James Mullan, Query 1, Shows the Number of Employees involved in an advert in each region */
 SELECT Campaign.campaignID, Advert.advertID, Web.region, COUNT(WorkDone.employeeID) AS NumberOfEmployees
 FROM Employee
@@ -184,3 +192,19 @@ FROM Employee
 	INNER JOIN Web
 		ON Web.advertID = Advert.advertID
 	GROUP BY Web.region;
+	
+	
+/* James Mullan, Query 2, */
+SELECT DISTINCT Campaign.campaignID, Advert.form
+FROM Campaign
+	INNER JOIN Advert
+		ON Advert.campaignID = Campaign.campaignID
+WHERE Advert.form NOT IN
+(
+	SELECT DISTINCT Campaign.campaignID
+	FROM Campaign
+		INNER JOIN Advert
+			ON Advert.campaignID = Campaign.campaignID
+		WHERE Advert.form = 'web'
+)
+ORDER BY Campaign.campaignID;
