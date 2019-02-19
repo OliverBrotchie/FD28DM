@@ -194,7 +194,7 @@ FROM Employee
 	GROUP BY Web.region;
 	
 	
-/* James Mullan, Query 2, */
+/* James Mullan, Query 2, Shows campaigns which don't use web adverts*/
 SELECT DISTINCT Campaign.campaignID, Advert.form
 FROM Campaign
 	INNER JOIN Advert
