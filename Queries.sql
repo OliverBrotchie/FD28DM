@@ -195,16 +195,17 @@ FROM Employee
 	
 	
 /* James Mullan, Query 2, Shows campaigns which don't use web adverts*/
-SELECT DISTINCT Campaign.campaignID, Advert.form
+DROP VIEW vWeb;
+CREATE VIEW vWeb AS
+SELECT DISTINCT Campaign.campaignID
 FROM Campaign
 	INNER JOIN Advert
 		ON Advert.campaignID = Campaign.campaignID
-WHERE Advert.form NOT IN
-(
-	SELECT DISTINCT Campaign.campaignID
-	FROM Campaign
-		INNER JOIN Advert
-			ON Advert.campaignID = Campaign.campaignID
 		WHERE Advert.form = 'web'
-)
 ORDER BY Campaign.campaignID;
+
+SELECT DISTINCT Campaign.campaignID
+FROM Campaign
+	LEFT JOIN vWeb
+		ON vWeb.campaignID = Campaign.campaignID
+WHERE vWeb.campaignID IS NULL;
