@@ -17,6 +17,11 @@ WHERE Employee.employeeID NOT IN
 );
 
 
+
+
+
+
+
 /* Query 2 */
 SELECT Client.clientID, COUNT(Advert.form) AS NumberOfRadioAdverts
 FROM Client
@@ -40,6 +45,11 @@ FROM Client
 	INNER JOIN ( SELECT Advert.campaignID magID, COUNT(Advert.form)  AS magazine FROM Advert WHERE Advert.form = 'mag' GROUP BY magID) AS magQ 
 		ON magID = Campaign.campaignID;
 
+		
+		
+		
+		
+		
 
 /* Query 3 */
 SELECT ID AS EmployeeID, PersonalInfo.firstName,PersonalInfo.secondName, MAX(hours) AS MaxHoursWorked
@@ -51,8 +61,15 @@ FROM (
 INNER JOIN Employee ON Employee.employeeID = ID
 INNER JOIN PersonalInfo ON PersonalInfo.personID = Employee.personID;
 
+
+
+
+
+
 /*Before Update*/
 SELECT * FROM Invoice;
+
+
 
 /*Query 4 */
 UPDATE Invoice
@@ -64,8 +81,15 @@ INNER JOIN (
 SET Invoice.cost = newCost
 WHERE Invoice.campaignID = ID;
 
+
+
 /*After Update*/
 SELECT * FROM InVoice;
+
+
+
+
+
 
 
 /*Corbin Beaumont, Query 1, Calculates average cost of all campaigns for the first 10 clients.*/
@@ -74,12 +98,18 @@ FROM invoice
 GROUP BY clientID 
 HAVING clientID < 11;
 
+
+
 /*Corbin Beaumont, Query 2, calculates the earnings per hour worked and groups it by campaign ID*/
 SELECT Invoice.campaignID, sum(Invoice.cost) DIV sum(WorkDone.hoursworked) AS averageCostPerHour
 FROM Invoice
 	INNER JOIN WorkDone 
 		ON Invoice.campaignID = WorkDone.campaignID
 GROUP BY Invoice.campaignID;
+
+
+
+
 
 
 
@@ -100,6 +130,9 @@ WHERE Employee.employeeID NOT IN
 )
 ORDER BY Employee.employeeID;
 
+
+
+
 /* Philip Lawson, Query 2, View that displays a list of employee ID's and their first and last names*/
 DROP VIEW vEmployeeID;
 CREATE VIEW vEmployeeID AS
@@ -114,6 +147,9 @@ FROM vEmployeeID;
 
 
 
+
+
+
 /* Oliver Brotchie Query 1, All middle managers (Anyone who is a manager but also has their own manager) */
 SELECT *
 FROM Employee
@@ -121,6 +157,9 @@ WHERE Employee.employeeID IN (
 	SELECT Employee.ManagerID
 	FROM Employee 
 ) AND Employee.managerID IS NOT NULL;
+
+
+
 
 /* Oliver Brotchie, Query 2, Find all adverts that have a target demographic that aplies to 16 - 30 year olds */
 SELECT * 
@@ -149,6 +188,9 @@ WHERE Web.advertID IN (
 
 
 
+
+
+
 /* Cameron Bone, Query 1, Displays view of number of hours worked on for each Campaign and the cost of each campaign*/
 DROP VIEW vHours;
 CREATE VIEW vHours AS
@@ -166,6 +208,8 @@ FROM Employee
 FROM vHours;
 
 
+
+
 /* Cameron Bone, Query 2, Finds the campaigns which have a TV or Radio advert which has a runtime longer than 40 seconds */
 SELECT Campaign.clientID, AVG(TVRadio.runTime) AS Average_Runtime
 FROM TVRadio
@@ -175,6 +219,8 @@ FROM TVRadio
 		ON Campaign.campaignID = Advert.campaignID 
 GROUP BY Campaign.clientID
 HAVING Average_Runtime > 40;
+
+
 
 
 
@@ -192,6 +238,8 @@ FROM Employee
 	INNER JOIN Web
 		ON Web.advertID = Advert.advertID
 	GROUP BY Web.region;
+	
+	
 	
 	
 /* James Mullan, Query 2, Shows campaigns which don't use web adverts*/
