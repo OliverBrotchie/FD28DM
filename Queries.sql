@@ -135,7 +135,7 @@ WHERE Web.advertID IN (
 
 
 
-/* Cameron Bone, Displays view of number of hours worked on for each Campaign and the cost of each campaign*/
+/* Cameron Bone, Query 1, Displays view of number of hours worked on for each Campaign and the cost of each campaign*/
 CREATE VIEW vHours AS
 SELECT Campaign.campaignID, Invoice.cost, COUNT(WorkDone.employeeID) AS NumberOfEmployees
 FROM Employee
@@ -150,6 +150,7 @@ FROM Employee
 FROM vHours;
 
 
+/* Cameron Bone, Query 2, Finds the campaigns which have a TV or Radio advert which has a runtime longer than 40 seconds */
 SELECT Campaign.clientID, AVG(TVRadio.runTime) AS Average_Runtime
 FROM TVRadio
 	INNER JOIN Advert 
