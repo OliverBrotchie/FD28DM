@@ -1,0 +1,16 @@
+
+1.Report to include the ER diagram for your database, and any supporting notes for you
+diagram. The diagram should also be included as a PDF in your zip file. (almost done, need to do the alternative to the crows foot)
+2. Report to include the relational schema and notes for any unusual steps that were
+followed. (similar problem to 1)
+3. Commented SQL script should be included in your archive file with an ‘SQL’ folder
+4. Report to include a description of the data loading followed. 
+5. Archive file to contain the data loading scripts in a ‘loader’ directory
+6. Report to contain a description for each query and transaction in English, the SQL, and the
+output or a subset of the output if there is a lot of it. (done, need to put in the report with a description of the output)
+7. Archive to contain a script file for each transaction and a file with all the queries. These script
+files should be included within a ‘queries’ directory in your archive file – ensure each
+individual query (e,f) is prefixed by your name to identify the student who generated the SQL. 
+8. Report to contain an explanation why each index is needed.
+9. Archive to contain a script containing the index commands in an ‘index’ folder
+10. Archive to include your JDBCMySQLApp source code in an ‘app’ directory.
