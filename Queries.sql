@@ -23,6 +23,8 @@ WHERE Employee.employeeID NOT IN
 
 
 /* Query 2 */
+/* Counts up number of radio adverts attached to x client */
+CREATE VIEW vRadioAdverts AS
 SELECT Client.clientID, COUNT(Advert.form) AS NumberOfRadioAdverts
 FROM Client
 	INNER JOIN Campaign
@@ -30,20 +32,64 @@ FROM Client
 	INNER JOIN Advert
 		ON Advert.campaignID = Campaign.campaignID
 WHERE Advert.form = "radio"
-GROUP BY clientID;
-
-SELECT Client.clientID,  radio, tv, web, magazine
+GROUP BY clientID
+ORDER BY clientID;
+/* Counts up TV adverts etc. */
+CREATE VIEW vTVAdverts AS
+SELECT Client.clientID, COUNT(Advert.form) AS NumberOfTVAdverts
 FROM Client
 	INNER JOIN Campaign
 		ON Campaign.clientID = Client.clientID
-	INNER JOIN ( SELECT Advert.campaignID radioID, COUNT(Advert.form)  AS radio FROM Advert WHERE Advert.form = 'radio' GROUP BY radioID) AS RadioQ 
-		ON radioID = Campaign.campaignID
-	INNER JOIN ( SELECT Advert.campaignID tvID, COUNT(Advert.form)  AS tv FROM Advert WHERE Advert.form = 'tv' GROUP BY tvID) AS tvQ 
-		ON tvID = Campaign.campaignID
-	INNER JOIN ( SELECT Advert.campaignID webID, COUNT(Advert.form)  AS web FROM Advert WHERE Advert.form = 'web' GROUP BY webID) AS webQ 
-		ON webID = Campaign.campaignID
-	INNER JOIN ( SELECT Advert.campaignID magID, COUNT(Advert.form)  AS magazine FROM Advert WHERE Advert.form = 'mag' GROUP BY magID) AS magQ 
-		ON magID = Campaign.campaignID;
+	INNER JOIN Advert
+		ON Advert.campaignID = Campaign.campaignID
+WHERE Advert.form = "TV"
+GROUP BY clientID
+ORDER BY clientID;
+
+CREATE VIEW vMagAdverts AS
+SELECT Client.clientID, COUNT(Advert.form) AS NumberOfMagAdverts
+FROM Client
+	INNER JOIN Campaign
+		ON Campaign.clientID = Client.clientID
+	INNER JOIN Advert
+		ON Advert.campaignID = Campaign.campaignID
+WHERE Advert.form = "mag"
+GROUP BY clientID
+ORDER BY clientID;
+
+CREATE VIEW vWebAdverts AS
+SELECT Client.clientID, COUNT(Advert.form) AS NumberOfWebAdverts
+FROM Client
+	INNER JOIN Campaign
+		ON Campaign.clientID = Client.clientID
+	INNER JOIN Advert
+		ON Advert.campaignID = Campaign.campaignID
+WHERE Advert.form = "web"
+GROUP BY clientID
+ORDER BY clientID;
+/* Joins the above 4 tables together */
+CREATE VIEW vAdverts AS
+SELECT Client.clientID, vRadioAdverts.NumberOfRadioAdverts,
+vWebAdverts.NumberOfWebAdverts, vTVAdverts.NumberOfTVAdverts, 
+vMagAdverts.NumberOfMagAdverts
+FROM Client
+	LEFT JOIN vRadioAdverts
+		ON vRadioAdverts.clientID = Client.clientID
+	LEFT JOIN vWebAdverts
+		ON vWebAdverts.clientID = Client.clientID
+	LEFT JOIN vTVAdverts
+		ON vTVAdverts.clientID = Client.clientID
+	LEFT JOIN vMagAdverts
+		ON vMagAdverts.clientID = Client.clientID
+GROUP BY clientID
+ORDER BY clientID;
+SELECT * FROM vAdverts;
+/* end of query 2, don't forget to drop views using the below code*/
+DROP VIEW vAdverts;
+DROP VIEW vRadioAdverts;
+DROP VIEW vTVAdverts;
+DROP VIEW vMagAdverts;
+DROP VIEW vWebAdverts;
 
 		
 		
