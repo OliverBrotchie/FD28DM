@@ -167,7 +167,7 @@ GROUP BY Campaign.clientID
 HAVING Average_Runtime > 40;
 
 
-/* James Mullan, Query 1, Shows the Number of Employees involved in a web advert in each region */
+/* James Mullan, Query 1, Shows the Number of Employees involved in an advert in each region */
 SELECT Campaign.campaignID, Advert.advertID, Web.region, COUNT(WorkDone.employeeID) AS NumberOfEmployees
 FROM Employee
 	INNER JOIN WorkDone
