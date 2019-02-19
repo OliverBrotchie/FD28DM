@@ -179,12 +179,12 @@ INSERT INTO Campaign (`campaignID`, `clientID`, `startDate`, `endDate`) VALUES
 
 INSERT INTO Advert (`advertID`, `companyID`, `campaignID`,  `form`) VALUES 
 (1, 1, 1, 'mag'), (2, 5, 1, 'web'), (3, 3, 1, 'tv'), (4, 2, 1, 'radio'),
-(5, 2, 3, 'tv'), (6, 2, 2, 'radio'), (7, 9, 2, 'mag'),
+(5, 2, 2, 'tv'), (6, 2, 2, 'radio'), (7, 9, 2, 'mag'),
 (8, 8, 3, 'web'), (9, 10, 3, 'mag'), (10, 3, 3, 'tv'),
 (11, 4, 4, 'web'), (12, 2, 4, 'radio'),
 (13, 3, 5, 'tv'),
 (14, 7, 6, 'web'), (15, 1, 6, 'mag'), (16, 2, 6, 'radio'), (17, 3, 6, 'tv'),
-(18, 2, 1, 'radio'), (19, 1, 7, 'mag'), 
+(18, 2, 7, 'radio'), (19, 1, 7, 'mag'), 
 (20, 3, 8, 'tv'), (21, 2, 8, 'radio'),
 (22, 3, 9, 'tv'),
 (23, 6, 10, 'web'), (24, 1, 10, 'mag'), (25, 2, 10, 'radio');
@@ -224,16 +224,16 @@ INSERT INTO TVRadio (`advertID`, `slot`, `runTime`,`broadcastingNo`) VALUES
 
 
 INSERT INTO Invoice (`campaignID`, `clientID`, `cost`) VALUES 
-( 1, 1, 61),
-( 2, 2, 81),
-( 3, 3, NULL),
-( 4, 4, NULL),
-( 5, 5, NULL),
-( 6, 6, NULL),
-( 7, 7, NULL),
-( 8, 8, NULL),
-( 9, 9, NULL),
-( 10, 10, NULL);
+(1, 1, 61),
+(2, 2, 81),
+(3, 3, NULL),
+(4, 4, NULL),
+(5, 5, NULL),
+(6, 6, NULL),
+(7, 7, NULL),
+(8, 8, NULL),
+(9, 9, NULL),
+(10, 10, NULL);
                                 
 INSERT INTO WorkDone (`campaignID`, `employeeID`, `hoursWorked`) VALUES 
 (1, 1, 12), (1, 5, 21), (1, 7, 4), (1, 10, 7),
