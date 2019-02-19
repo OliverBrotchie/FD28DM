@@ -17,7 +17,7 @@ WHERE Employee.employeeID NOT IN
 );
 
 
-/* Query 2 Need to add all types*/
+/* Query 2 */
 SELECT Client.clientID, COUNT(Advert.form) AS NumberOfRadioAdverts
 FROM Client
 	INNER JOIN Campaign
@@ -61,6 +61,10 @@ INNER JOIN (
 SET Invoice.cost = newCost
 WHERE Invoice.campaignID = ID;
 
+
+
+
+
 /*Corbin Beaumont, Query 1, Calculates average cost of all campaigns for the first 10 clients.*/
 SELECT clientID, avg(cost) 
 FROM invoice   
@@ -73,6 +77,9 @@ FROM Invoice
 	INNER JOIN WorkDone 
 		ON Invoice.campaignID = WorkDone.campaignID
 GROUP BY Invoice.campaignID;
+
+
+
 
 
 /* Philip Lawson, Query 1, Employees that aren't working more than 10 hours on a project*/
@@ -98,6 +105,7 @@ FROM PersonalInfo
 		ON Employee.personID = PersonalInfo.personID;
 SELECT vEmployeeID.EmployeeID, vEmployeeID.firstName, vEmployeeID.secondName
 FROM vEmployeeID;
+
 
 
 
@@ -135,14 +143,12 @@ WHERE Web.advertID IN (
 
 
 
+
+
 /* Cameron Bone, Query 1, Displays view of number of hours worked on for each Campaign and the cost of each campaign*/
 CREATE VIEW vHours AS
 SELECT Campaign.campaignID, Invoice.cost, COUNT(WorkDone.employeeID) AS NumberOfEmployees
-FROM Employee
-	INNER JOIN WorkDone
-		ON WorkDone.employeeID = Employee.employeeID
-	INNER JOIN Campaign
-		ON Campaign.campaignID = WorkDone.campaignID
+
 	INNER JOIN Invoice
 		ON Invoice.campaignID = Campaign.campaignID;
 		
@@ -160,5 +166,16 @@ FROM TVRadio
 GROUP BY Campaign.clientID
 HAVING Average_Runtime > 40;
 
-	
-	
+
+/* James Mullan, Query 1, Shows the Number of Employees involved in a web advert in each region */
+SELECT Campaign.campaignID, Advert.advertID, Web.region, COUNT(WorkDone.employeeID) AS NumberOfEmployees
+FROM Employee
+	INNER JOIN WorkDone
+		ON WorkDone.employeeID = Employee.employeeID
+	INNER JOIN Campaign
+		ON Campaign.campaignID = WorkDone.campaignID
+	INNER JOIN Advert
+		ON Advert.campaignID = Campaign.campaignID
+	INNER JOIN Web
+		ON Web.advertID = Advert.advertID
+	GROUP BY Web.region;
