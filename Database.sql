@@ -205,6 +205,7 @@ INSERT INTO Magazine (`advertID`, `textSize`, `position`, `issues`) VALUES
 (24, 'small', 'top-left', 7);
                         
 INSERT INTO TVRadio (`advertID`, `slot`, `runTime`,`broadcastingNo`) VALUES 
+
 /*Radio Adverts*/
 (4, '10:00', 60,15),
 (6, '13:00', 120,35),
@@ -213,6 +214,7 @@ INSERT INTO TVRadio (`advertID`, `slot`, `runTime`,`broadcastingNo`) VALUES
 (18, '09:00', 40, 9),
 (21, '21:00', 120, 25),
 (25, '22:00', 100, 36),
+
 /*TV Adverts*/
 (3, '07:00', 120, 12),
 (5, '10:00', 40, 31),
