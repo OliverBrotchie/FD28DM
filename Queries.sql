@@ -20,7 +20,11 @@ WHERE Employee.employeeID NOT IN
 
 
 
-
+DROP VIEW vAdverts;
+DROP VIEW vRadioAdverts;
+DROP VIEW vTVAdverts;
+DROP VIEW vMagAdverts;
+DROP VIEW vWebAdverts;
 
 /* Query 2 */
 /* Counts up number of radio adverts attached to x client */
@@ -85,11 +89,7 @@ GROUP BY clientID
 ORDER BY clientID;
 SELECT * FROM vAdverts;
 /* end of query 2, don't forget to drop views using the below code*/
-DROP VIEW vAdverts;
-DROP VIEW vRadioAdverts;
-DROP VIEW vTVAdverts;
-DROP VIEW vMagAdverts;
-DROP VIEW vWebAdverts;
+
 
 		
 		
